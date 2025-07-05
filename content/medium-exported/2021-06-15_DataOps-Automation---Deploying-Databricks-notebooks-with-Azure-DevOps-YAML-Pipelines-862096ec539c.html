@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>DataOps Automation — Deploying Databricks notebooks with Azure DevOps YAML Pipelines</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">DataOps Automation — Deploying Databricks notebooks with Azure DevOps YAML Pipelines</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In this post, I will show an easy way how to deploy your Databricks notebooks using Azure DevOps and YAML pipelines.
+</section>
+<section data-field="body" class="e-content">
+<section name="7a1b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6e78" id="6e78" class="graf graf--h3 graf--leading graf--title">DataOps Automation — Deploying Databricks notebooks with Azure DevOps YAML Pipelines</h3><p name="4fc9" id="4fc9" class="graf graf--p graf-after--h3">In this post, I will show an easy way how to deploy your Databricks notebooks using Azure DevOps and YAML pipelines.</p><p name="ffde" id="ffde" class="graf graf--p graf-after--p">This will be the first of a series of posts, showing how to deploy code and infrastructure of Data Platform tools. I created GitHub repo to keep the examples, so if you want you can check that here: <a href="https://github.com/wesleycamargo/DataOps" data-href="https://github.com/wesleycamargo/DataOps" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">wesleycamargo/DataOps (github.com)</a> 🙂</p><figure name="db44" id="db44" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7aLnpcc0eKFY3hptjG5W4Q.png" data-width="1126" data-height="659" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*7aLnpcc0eKFY3hptjG5W4Q.png"><figcaption class="imageCaption">Image prepared by author</figcaption></figure><h4 name="032a" id="032a" class="graf graf--h4 graf-after--figure">Project structure</h4><p name="2016" id="2016" class="graf graf--p graf-after--h4">The organization of this repo is based on components, so I’ll keep everything necessary to deploy some kind of component together. If you have a different structure, remember to update the yaml templates with your paths.</p><p name="ff05" id="ff05" class="graf graf--p graf-after--p">For databricks we have a <code class="markup--code markup--p-code">/databricks</code> and a <code class="markup--code markup--p-code">/src</code> folder, in the future it will be important to segregate from IaC code. You can have your project folders on this level, in my example, I have two notebooks inside a <code class="markup--code markup--p-code">calculator</code> folder`.</p><figure name="ad2f" id="ad2f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*v-4dZZgIV3rrRXiZe6jcOA.png" data-width="238" data-height="150" src="https://cdn-images-1.medium.com/max/800/1*v-4dZZgIV3rrRXiZe6jcOA.png"><figcaption class="imageCaption">Project structure — Image prepared by author</figcaption></figure><h4 name="d53d" id="d53d" class="graf graf--h4 graf-after--figure">Preparing artifacts</h4><p name="2a1f" id="2a1f" class="graf graf--p graf-after--h4">In the build stage, we will create a copy of our notebooks into a staging folder, and then publish them as build artifacts to be consumed later in the process.</p><p name="6254" id="6254" class="graf graf--p graf-after--p">We will copy all folders under <code class="markup--code markup--p-code">/src</code> folder, so when we deploy that into databricks workspace all folders will be created into the workspace as well.</p><figure name="5c2b" id="5c2b" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4e6ab9fc9127166f50fac39eea39c149?file=databricks-build.yml.js"></script></figure><p name="8aa8" id="8aa8" class="graf graf--p graf-after--figure">If you run the pipeline now you already can see the artifacts and the structure:</p><figure name="4fba" id="4fba" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zBile6BF8zXBHNK78lqPRQ.png" data-width="427" data-height="381" src="https://cdn-images-1.medium.com/max/800/1*zBile6BF8zXBHNK78lqPRQ.png"><figcaption class="imageCaption">Image prepared by author</figcaption></figure><h4 name="e8b6" id="e8b6" class="graf graf--h4 graf-after--figure">Setting variables</h4><p name="921e" id="921e" class="graf graf--p graf-after--h4">In the deployment stage, we will need to consume some sensitive information like your databricks Personal Access Token. To avoid hard coding this information and to keep this example simple, let&#39;s create some variables in the pipeline.</p><figure name="cd42" id="cd42" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YZkUdlCrfAwCZKOyL_Wo_g.png" data-width="571" data-height="401" src="https://cdn-images-1.medium.com/max/800/1*YZkUdlCrfAwCZKOyL_Wo_g.png"><figcaption class="imageCaption">Image prepared by author</figcaption></figure><figure name="e457" id="e457" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*igdByvqLq-3bKW2Pvnl7JA.png" data-width="486" data-height="272" src="https://cdn-images-1.medium.com/max/800/1*igdByvqLq-3bKW2Pvnl7JA.png"><figcaption class="imageCaption">Image prepared by author</figcaption></figure><h4 name="cb3b" id="cb3b" class="graf graf--h4 graf-after--figure">Deploy</h4><p name="3dee" id="3dee" class="graf graf--p graf-after--h4">To deploy we will use a special kind of job called <code class="markup--code markup--p-code">deployment </code>🙂, there are some advantages to use this instead of the regular job, but I’ll do not explore them now.</p><p name="2b64" id="2b64" class="graf graf--p graf-after--p">In the first step, we are setting up the python version to 3.x, to that we are using a task to abstract this activity.</p><p name="284c" id="284c" class="graf graf--p graf-after--p">In the second one, we are setting app our databricks workspace. Basically, we are creating a <code class="markup--code markup--p-code">.databrickscfg</code> file with your token and databricks URL. To populate this file we need to consume the variables created before. So be sure that you have <code class="markup--code markup--p-code">databricks.host</code> and <code class="markup--code markup--p-code">databricks.token</code> create. We are also installing the databricks CLI to run on the next step.</p><p name="efa3" id="efa3" class="graf graf--p graf-after--p">And finally, in the last step we are importing the artifacts generated before using databricks CLI.</p><figure name="fd90" id="fd90" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4e6ab9fc9127166f50fac39eea39c149?file=databricks-deploy.yml.js"></script></figure><p name="b6d7" id="b6d7" class="graf graf--p graf-after--figure">Below you can see the complete YAML template.</p><figure name="0458" id="0458" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4e6ab9fc9127166f50fac39eea39c149?file=databricks-build-release.yml.js"></script></figure><p name="af99" id="af99" class="graf graf--p graf-after--figure graf--trailing">Hope that post can help you and see you in the next post! 😃</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/862096ec539c"><time class="dt-published" datetime="2021-06-15T16:54:07.073Z">June 15, 2021</time></a>.</p><p><a href="https://medium.com/@camargo-wes/dataops-automation-deploying-databricks-notebooks-with-azure-devops-yaml-pipelines-862096ec539c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

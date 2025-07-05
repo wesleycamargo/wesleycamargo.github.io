@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Conectando WebApps a redes existentes</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Conectando WebApps a redes existentes</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Em algumas situações quando utilizamos WebApps pode ser necessária a comunicação com algum recurso já existente em nossa rede, como por…
+</section>
+<section data-field="body" class="e-content">
+<section name="938c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="57ba" id="57ba" class="graf graf--h3 graf--leading graf--title">Conectando WebApps a redes existentes</h3><p name="4472" id="4472" class="graf graf--p graf-after--h3">Em algumas situações quando utilizamos WebApps pode ser necessária a comunicação com algum recurso já existente em nossa rede, como por exemplo um banco de dados IaaS, uma API, ou até mesmo um outro WebApp.</p><p name="59db" id="59db" class="graf graf--p graf-after--p">A maneira mais simples de realizar essa comunicação é através da internet, mas, apesar de ser mais fácil isso pode expor sua aplicação a vários riscos de segurança, como invasões, roubos de dados, etc.</p><p name="7431" id="7431" class="graf graf--p graf-after--p">Para solucionar esse problema, o Microsoft Azure possui um recurso chamado VNet Integration, que permite a conexão de um WebApp a uma rede existente.</p><p name="4ef2" id="4ef2" class="graf graf--p graf-after--p">Agora irei demonstrar como realizar a conexão:</p><h3 name="d6bf" id="d6bf" class="graf graf--h3 graf-after--p">Criando a Virtual Network (VNet)</h3><p name="238e" id="238e" class="graf graf--p graf-after--h3">Se você já possuir uma VNet pode pular para a próxima etapa. Para a criação não existem muitos segredos, a VNet pode seguir as configurações padrão sugeridas:</p><figure name="4913" id="4913" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ooxS-JBEtmGsvRK8CnOofQ.png" src="https://cdn-images-1.medium.com/max/800/1*ooxS-JBEtmGsvRK8CnOofQ.png"></figure><p name="085b" id="085b" class="graf graf--p graf-after--figure">Após a criação da VNet, precisamos criar um VNet Gateway, que será utilizado para realizar uma conexão VPN Point to Site (P2S) do seu WebApp para a sua VNet, para isso é necessário adicionar uma subnet exclusiva para gateways. Vá em “Subnets” e clique em “Gateway subnet”:</p><figure name="8346" id="8346" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7g8AWHV9rkU0BHSXzeUylw.png" src="https://cdn-images-1.medium.com/max/800/1*7g8AWHV9rkU0BHSXzeUylw.png"></figure><p name="5e49" id="5e49" class="graf graf--p graf-after--figure">Repare que a subnet é nomeada automaticamente, isso acontece pois no momento da criação do VNet Gateway ele irá buscar por esse nome:</p><figure name="1196" id="1196" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VVxUnVXtCI7GtggN4N7tGw.png" src="https://cdn-images-1.medium.com/max/800/1*VVxUnVXtCI7GtggN4N7tGw.png"></figure><figure name="43f1" id="43f1" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*iEBQdhcwJHe9fHv6fQ7RHw.png" src="https://cdn-images-1.medium.com/max/800/1*iEBQdhcwJHe9fHv6fQ7RHw.png"></figure><p name="daea" id="daea" class="graf graf--p graf-after--figure">Com a subnet criada, vamos à criação do Gateway.</p><h3 name="264b" id="264b" class="graf graf--h3 graf-after--p">Criando o Virtual Network Gateway</h3><p name="9bce" id="9bce" class="graf graf--p graf-after--h3">Em Gateway type selecione “VPN”, em VPN type “Route-based” e em Virtual network, escolha a VNet criada:</p><figure name="d1ce" id="d1ce" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OHq0fdZ5KgQz9u_uyw5Egg.png" src="https://cdn-images-1.medium.com/max/800/1*OHq0fdZ5KgQz9u_uyw5Egg.png"></figure><p name="ffdc" id="ffdc" class="graf graf--p graf-after--figure">Essa etapa pode ser um pouco demorada, no geral demora em torno de 30 minutos para a criação do gateway.</p><p name="528c" id="528c" class="graf graf--p graf-after--p">Após criado vá em Point-to-site configuration, desabilite a opção IkeV2, e adicione a chave de um certificado do tipo CER. Este certificado será baixado automaticamente pelo WebApp para realizar a autenticação na VPN.</p><figure name="f264" id="f264" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qW_53OBwgcWL5X8-LnYeWA.png" src="https://cdn-images-1.medium.com/max/800/1*qW_53OBwgcWL5X8-LnYeWA.png"></figure><p name="54d4" id="54d4" class="graf graf--p graf-after--figure">Ao realizar a configuração do WebApp para a conexão do Gateway, você poderá receber a mensagem de erro abaixo dizendo que o protocolo IkeV2 não é compatível, certifique-se que a opção está desabilitada conforme a imagem acima.</p><figure name="656e" id="656e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sFY7BaCwYIsmSA2p8p5sDQ.png" src="https://cdn-images-1.medium.com/max/800/1*sFY7BaCwYIsmSA2p8p5sDQ.png"></figure><h3 name="0832" id="0832" class="graf graf--h3 graf-after--figure">Conectando o WebApp</h3><p name="f701" id="f701" class="graf graf--p graf-after--h3">Assim como a VNet, caso já possua o WebApp vá para o próximo passo. Caso ainda não tenha, pode manter as configurações padrão.</p><p name="d7f8" id="d7f8" class="graf graf--p graf-after--p">Vá em networking e em VNet Integration clique em Setup, e depois escolha a VNet que possui o VNet Gateway:</p><h3 name="90c1" id="90c1" class="graf graf--h3 graf-after--p">Problemas comuns</h3><p name="ffcc" id="ffcc" class="graf graf--p graf-after--h3">Outro problema muito comum, é o certificado estar fora de sincronia:</p><figure name="a852" id="a852" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1rF5SbrpU3k9CumNYthJog.png" src="https://cdn-images-1.medium.com/max/800/1*1rF5SbrpU3k9CumNYthJog.png"></figure><p name="a579" id="a579" class="graf graf--p graf-after--figure">Para resolver isso, vá ao Service Plan do seu WebApp, e force o sincronismo:</p><figure name="bc76" id="bc76" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*iKviBxXJs-5p_JRs0layHw.png" src="https://cdn-images-1.medium.com/max/800/1*iKviBxXJs-5p_JRs0layHw.png"></figure><figure name="7b24" id="7b24" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*WjGMewg60baKDTdT2CbVsw.png" src="https://cdn-images-1.medium.com/max/800/1*WjGMewg60baKDTdT2CbVsw.png"></figure><p name="b1c8" id="b1c8" class="graf graf--p graf-after--figure">Após esses passos seu WebApp será capaz de acessar os recursos da sua rede!</p><figure name="026f" id="026f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vatVLsT-KnKJyuxXyfkHHQ.png" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*vatVLsT-KnKJyuxXyfkHHQ.png"></figure><p name="e929" id="e929" class="graf graf--p graf-after--figure">Abraço!</p><p name="d4f3" id="d4f3" class="graf graf--p graf-after--p graf--trailing"><em class="markup--em markup--p-em">Originally published at </em><a href="http://wesleycamargo.com.br/2018/08/04/conectando-webapps-a-redes-existentes/" data-href="http://wesleycamargo.com.br/2018/08/04/conectando-webapps-a-redes-existentes/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">wesleycamargo.com.br</em></a><em class="markup--em markup--p-em"> on August 18, 2018.</em></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/942db03f0cc5"><time class="dt-published" datetime="2018-08-04T22:38:24.513Z">August 4, 2018</time></a>.</p><p><a href="https://medium.com/@camargo-wes/conectando-webapps-a-redes-existentes-942db03f0cc5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

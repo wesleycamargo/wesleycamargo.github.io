@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>O que é Automação de Configuração e por que devo utilizar</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">O que é Automação de Configuração e por que devo utilizar</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Se acidentalmente alguém destruir seu ambiente de produção agora, quanto tempo você gastaria para deixar tudo funcionando novamente?
+</section>
+<section data-field="body" class="e-content">
+<section name="989a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="047e" id="047e" class="graf graf--h3 graf--leading graf--title">O que é Automação de Configuração e por que devo utilizar</h3><h4 name="9796" id="9796" class="graf graf--h4 graf-after--h3 graf--subtitle">Se acidentalmente alguém destruir seu ambiente de produção agora, quanto tempo você gastaria para deixar tudo funcionando novamente?</h4><p name="7d1e" id="7d1e" class="graf graf--p graf-after--h4">Automação de configuração ou Continuous Configuration Automation (CCA) é um tipo de ferramenta de IaC que após o provisionamento dos recursos irão garantir que todas as configurações necessárias para que a aplicação funcione estão instaladas e configuradas corretamente no nosso ambiente.</p><figure name="c419" id="c419" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9pQikZFibQWVP6-zugbKWg.png" data-width="424" data-height="611" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*9pQikZFibQWVP6-zugbKWg.png"></figure><p name="86dc" id="86dc" class="graf graf--p graf-after--figure">No mundo de DevOps é muito comum ouvirmos falar sobre Infraestrutura como código (IaC), que nada mais é que provisionar a infraestrutura de nossas aplicações através de arquivos que são tratados da mesma forma que o código fonte.</p><p name="6cab" id="6cab" class="graf graf--p graf-after--p">Basicamente Infra as Code possui 2 tipos de ferramentas:</p><ol class="postList"><li name="07ed" id="07ed" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Provisionamento de recursos </strong>- nessa categoria estão ferramentas que criam os recursos de infraestrutura que serão utilizados por nossas aplicações. <br>Entre as ferramentas mais conhecidas estão: <strong class="markup--strong markup--li-strong">AWS Cloud Formation</strong>, <strong class="markup--strong markup--li-strong">ARM Templates</strong> e talvez a mais conhecida de todos, o <strong class="markup--strong markup--li-strong">Terraform</strong>.</li><li name="ba84" id="ba84" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Continuous Configuration Automation (CCA) ou Configuração de ambientes</strong> - aqui estão ferramentas, como mencionado acima, que após a criação dos recursos irão garantir que todas as configurações necessárias para que a aplicação funcionem estejam de acordo com o especificado. Exemplos dessas configurações são, garantir que portas de firewall estejam liberadas, outros softwares que minha aplicação tenha dependência estejam instalados, servidores de aplicação onde minha aplicação irá rodar esteja com a versão correta do framework utilizado, permissões de acesso, entre todas as outras configurações necessárias para nosso ambiente.<br>Aqui estão alguns exemplos dessas ferramentas: <strong class="markup--strong markup--li-strong">Chef</strong>, <strong class="markup--strong markup--li-strong">Puppet</strong>, <strong class="markup--strong markup--li-strong">Powershell DSC</strong>, <strong class="markup--strong markup--li-strong">Ansible</strong> entre vários outros. Aqui neste artigo demonstro a utilização básica do <a href="https://medium.com/@camargo.wes/criando-um-dsc-b%C3%A1sico-9b0a694b8e12" data-href="https://medium.com/@camargo.wes/criando-um-dsc-b%C3%A1sico-9b0a694b8e12" class="markup--anchor markup--li-anchor" target="_blank">Powershell DSC</a>.</li></ol><p name="ab6b" id="ab6b" class="graf graf--p graf-after--li">Em algumas ferramentas é possível realizar as duas tarefas sendo assim você pode utilizar apenas uma, porém, sempre haverá especialização em uma das duas categorias (provisionamento ou configuração), o que pode dar um pouco mais de trabalho para a implementação na categoria menos especializada. Nesse caso deve ser avaliado o custo benefício de implementação vs valores gastos com licenças, por exemplo.</p><h3 name="509b" id="509b" class="graf graf--h3 graf-after--p">Mas por que eu preciso disso?</h3><p name="dbc9" id="dbc9" class="graf graf--p graf-after--h3">Acredito que hoje, 99% das as empresas devem utilizar algum tipo de controle de versão para manter seu software (se não está utilizando é melhor pensar nisso imediatamente!), entretanto, em grande parte esses sistemas são utilizados apenas para versionamento de código fonte, quando deveria englobar todos os artefatos necessários para recriar seus binários e ambientes.</p><h4 name="f188" id="f188" class="graf graf--h4 graf-after--p"><strong class="markup--strong markup--h4-strong">Criar o ambiente da aplicação à qualquer momento</strong></h4><p name="5aae" id="5aae" class="graf graf--p graf-after--h4">Para que em uma emergência seja possível recriar nosso ambiente com o mínimo de esforço, um dos princípios de DevOps é que devemos manter absolutamente <strong class="markup--strong markup--p-strong">TUDO</strong> que seja necessário para criarmos uma versão de nossa aplicação do zero em um sistema de <strong class="markup--strong markup--p-strong">Controle de Versão</strong></p><p name="5f25" id="5f25" class="graf graf--p graf-after--p">Eu já presenciei essa experiência por duas vezes (não foi minha culpa heheh), e em ambas boa parte dos recursos estavam sim versionados, mas alguns como configurações de aplicação, regras de DNS, e alguns outros itens infelizmente não. A maior parte foi configurada razoavelmente rápido, mas por algumas semanas fomos descobrindo alguns itens de configuração que faltavam ou estavam incorretos.</p><h4 name="5752" id="5752" class="graf graf--h4 graf-after--p">Ambientes de desenvolvimentos padronizados</h4><p name="9ce1" id="9ce1" class="graf graf--p graf-after--h4">Acredito que todos na área de TI já ouviram a famosa frase <strong class="markup--strong markup--p-strong">“Na minha máquina funciona”</strong>.</p><p name="db54" id="db54" class="graf graf--p graf-after--p">Outra vantagem será garantir que <strong class="markup--strong markup--p-strong">todos os desenvolvedores utilizam um ambiente idêntico</strong>, com todas as dependências instaladas e configurações realizadas. Caso isso não seja implementado, poderá causar problemas como por exemplo, desenvolvedores utilizando versões diferentes de um framework, e ao juntar suas alterações ocorrerem conflitos que precisarão ser corrigidos, ou até mesmo alguma dependência de software que existe apenas no ambiente do desenvolvedor.</p><h4 name="8fe8" id="8fe8" class="graf graf--h4 graf-after--p">Controle das alterações realizadas nos ambientes</h4><p name="3e7f" id="3e7f" class="graf graf--p graf-after--h4 graf--trailing">Com o versionamento das definições de configurações dos ambientes em arquivos armazenados em um <strong class="markup--strong markup--p-strong">Sistemas de Controle de Versão </strong>todas as alterações podem ser iniciadas através de alterações nos arquivos e enviadas ao SCV, o que nos fornece um <strong class="markup--strong markup--p-strong">registro de todas as mudanças realizadas no ambiente</strong> e remove a necessidade de acessar algum servidor para realizar alterações, já que todo o processo será realizado de forma automática, garantindo padronização dos ambientes.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/816301604c0f"><time class="dt-published" datetime="2020-04-25T21:14:58.605Z">April 25, 2020</time></a>.</p><p><a href="https://medium.com/@camargo-wes/o-que-%C3%A9-automa%C3%A7%C3%A3o-de-configura%C3%A7%C3%A3o-e-por-que-devo-utilizar-816301604c0f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

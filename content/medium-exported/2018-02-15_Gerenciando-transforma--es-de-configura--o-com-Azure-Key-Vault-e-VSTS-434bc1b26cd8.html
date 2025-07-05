@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Gerenciando transformações de configuração com Azure Key Vault e VSTS</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Gerenciando transformações de configuração com Azure Key Vault e VSTS</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Quem nunca teve dificuldade para fazer a gestão de arquivos de configuração que atire a primeira pedra!
+</section>
+<section data-field="body" class="e-content">
+<section name="de23" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a542" id="a542" class="graf graf--h3 graf--leading graf--title">Gerenciando transformações de configuração com Azure Key Vault e VSTS</h3><p name="e9cd" id="e9cd" class="graf graf--p graf-after--h3">Quem nunca teve dificuldade para fazer a gestão de arquivos de configuração que atire a primeira pedra!</p><p name="9aef" id="9aef" class="graf graf--p graf-after--p">Com a automação dos processos de build e deploy, uma etapa muito importante do processo é alteração das chaves dos arquivos de configuração, pois em cada um de nossos ambientes, teremos também valores diferentes, como por exemplo a connection string de um banco de dados.</p><p name="582e" id="582e" class="graf graf--p graf-after--p">Irei abordar uma maneira inteligente de realizar isso, através da transformação no momento do deploy utilizando o Azure Key Vault no momento de realização da Release no Visual Studio Team Services, então mãos a obra!</p><p name="72fe" id="72fe" class="graf graf--p graf-after--p">Para demonstrar, irei utilizar uma aplicação web simples, que será compilada no VSTS e publicada em um Azure Web App (em outro post irei explicar como criar e configurar um :)).</p><p name="3985" id="3985" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">O que é o Azure Key Vault?</strong></p><figure name="96ca" id="96ca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*LZ9C3pXOV3xuvyWq.png" data-width="230" data-height="160" src="https://cdn-images-1.medium.com/max/800/0*LZ9C3pXOV3xuvyWq.png"></figure><p name="8ca2" id="8ca2" class="graf graf--p graf-after--figure">O Azure Key Vault é um recurso do Azure onde são armazenadas chaves e segredos para realizar a comunicação entre aplicações. Com ele podemos armazenar dados sensíveis(Segredos), Certificados .PFX, Key encription Keys (KEK) e também é possível utilizar sua API para realizar criptografia. Para mais informações à respeito, segue o link da documentação <a href="https://azure.microsoft.com/en-us/services/key-vault/" data-href="https://azure.microsoft.com/en-us/services/key-vault/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://azure.microsoft.com/en-us/services/key-vault/</a></p><p name="de10" id="de10" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Entre as vantagens de utilização destacam-se:</strong></p><ul class="postList"><li name="2e4d" id="2e4d" class="graf graf--li graf-after--p">Gestão de forma centralizada</li><li name="e121" id="e121" class="graf graf--li graf-after--li">Maior segurança na administração dos dados sensíveis</li><li name="302c" id="302c" class="graf graf--li graf-after--li">Maior facilidade na administração, pois pode ser feita no Azure Portal</li></ul><p name="4bae" id="4bae" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Como implementar?</strong></p><p name="382a" id="382a" class="graf graf--p graf-after--p">O primeiro passo é criar um Azure Key Vault no Azure Portal:</p><figure name="d9dc" id="d9dc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nx7lCO0MwgnJ13_U7ci9Aw.png" data-width="652" data-height="302" src="https://cdn-images-1.medium.com/max/800/1*nx7lCO0MwgnJ13_U7ci9Aw.png"></figure><p name="fa1d" id="fa1d" class="graf graf--p graf-after--figure">Selecione Add e na sequência preencha nome, Resource Group e Location. O restante das informações podem ser mantidas. Clique em Create:</p><figure name="ca54" id="ca54" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Db5ICSpI3_IdNssDLi69Lg.png" data-width="623" data-height="628" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Db5ICSpI3_IdNssDLi69Lg.png"></figure><p name="587e" id="587e" class="graf graf--p graf-after--figure">Após a criação, selecione “Secrets” e “Generate/Import”:</p><figure name="6475" id="6475" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ON1rL_yJBKq3Z5_Yk3hdlg.png" data-width="573" data-height="416" src="https://cdn-images-1.medium.com/max/800/1*ON1rL_yJBKq3Z5_Yk3hdlg.png"></figure><p name="fc19" id="fc19" class="graf graf--p graf-after--figure">Na próxima etapa iremos realizar a criação da chave/secret. Em Upload Options selecione Manual, e adicione o nome da variável e o valor. Note que por ser um secret aparecem asteriscos quando o valor é digitado:</p><figure name="b950" id="b950" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yAMfpsvEpZ_8yiCJB8bjJA.png" data-width="570" data-height="580" src="https://cdn-images-1.medium.com/max/800/1*yAMfpsvEpZ_8yiCJB8bjJA.png"></figure><p name="55e9" id="55e9" class="graf graf--p graf-after--figure">Agora que temos nossa chave criada, vamos ao VSTS realizar a configuração de um Release Definition utilizando o Key Vault.</p><p name="533f" id="533f" class="graf graf--p graf-after--p">Para isso iremos utilizar um Variable Group e nele iremos realizar o link com o Key Vault.</p><p name="76e5" id="76e5" class="graf graf--p graf-after--p">Selecione a opção de Build/Release e em seguida Library. Após isso crie um novo Variable Group:</p><figure name="e59d" id="e59d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1dzMMvFwmQE-hoCNKwat0w.png" data-width="801" data-height="494" src="https://cdn-images-1.medium.com/max/800/1*1dzMMvFwmQE-hoCNKwat0w.png"></figure><p name="1d4b" id="1d4b" class="graf graf--p graf-after--figure">Agora devemos nomear o Variable Group e selecionar Link Secrets from an Azure Key Vault. Então selecione uma subscription e o Key Vault criado anteriormente. <br>Após selecionar o Key Vault, será solicitada uma autorização para utilização, pode ser necessária uma permissão mais elevada no VSTS para relizar este passo:</p><figure name="538d" id="538d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*CR9CpspeIxahIV_rCKhmGA.png" data-width="796" data-height="495" src="https://cdn-images-1.medium.com/max/800/1*CR9CpspeIxahIV_rCKhmGA.png"></figure><p name="f96a" id="f96a" class="graf graf--p graf-after--figure">Selecione as variáveis desejadas no grid que será habilitado e salve o Variable Group:</p><figure name="f95e" id="f95e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZKGYMXc8SRQX8e_UpfYoKA.png" data-width="785" data-height="168" src="https://cdn-images-1.medium.com/max/800/1*ZKGYMXc8SRQX8e_UpfYoKA.png"></figure><figure name="dc66" id="dc66" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*QdieHNnS42PLsLQlw55Xvg.png" data-width="787" data-height="250" src="https://cdn-images-1.medium.com/max/800/1*QdieHNnS42PLsLQlw55Xvg.png"></figure><p name="3dae" id="3dae" class="graf graf--p graf-after--figure">Para utilizar na Release Definition, vá em Variables e selecione Variable Groups. Clique em Link variable group:</p><figure name="cc87" id="cc87" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PCvfwJhmXK4uqO0R_YmFgw.png" data-width="841" data-height="224" src="https://cdn-images-1.medium.com/max/800/1*PCvfwJhmXK4uqO0R_YmFgw.png"></figure><p name="974a" id="974a" class="graf graf--p graf-after--figure">Agora selecione o Variable Group criado, e clique em Link.</p><figure name="538b" id="538b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Eh0EakNsTdVBmYLV3-r29g.png" data-width="837" data-height="493" src="https://cdn-images-1.medium.com/max/800/1*Eh0EakNsTdVBmYLV3-r29g.png"></figure><p name="4864" id="4864" class="graf graf--p graf-after--figure">Pronto, agora as variáveis do Azure Key Vault podem ser utilizadas no processo de Release. Para utilizar, é o mesmo processo de utilização de uma variável criada durante a release, utilizando $(nomedavariavel) em algum script ou parâmetro.</p><p name="5716" id="5716" class="graf graf--p graf-after--p">Espero que este artigo seja útil, ajudando no processo de transformações de arquivos tornando mais prático e seguro!</p><p name="15ab" id="15ab" class="graf graf--p graf-after--p graf--trailing">Abraço!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/434bc1b26cd8"><time class="dt-published" datetime="2018-02-15T15:21:22.519Z">February 15, 2018</time></a>.</p><p><a href="https://medium.com/@camargo-wes/gerenciando-transformacoes-de-configuracao-com-azure-key-vault-e-vsts-434bc1b26cd8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Transformando configurações de XML e JSON com Web Apps</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Transformando configurações de XML e JSON com Web Apps</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Em um post anterior demonstrei como gerenciar configurações utilizando Azure Key Vault (clique aqui para ver). 
+Agora irei mostrar como…
+</section>
+<section data-field="body" class="e-content">
+<section name="6672" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4fc3" id="4fc3" class="graf graf--h3 graf--leading graf--title">Transformando configurações de XML e JSON com Web Apps</h3><p name="5f3e" id="5f3e" class="graf graf--p graf-after--h3">Em um post anterior demonstrei como gerenciar configurações utilizando Azure Key Vault (<a href="https://medium.com/@camargo.wes/gerenciando-transformacoes-de-configuracao-com-azure-key-vault-e-vsts-434bc1b26cd8" data-href="https://medium.com/@camargo.wes/gerenciando-transformacoes-de-configuracao-com-azure-key-vault-e-vsts-434bc1b26cd8" class="markup--anchor markup--p-anchor" target="_blank">clique aqui </a>para ver). <br>Agora irei mostrar como podemos realizar a transformação de uma configuração utilizando as tasks de deploy de Web Apps de uma maneira simples e fácil.</p><p name="c656" id="c656" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Configurando meu Web App</strong></p><figure name="7e67" id="7e67" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BD0EV8VzKpc9o7qG8R9XLg.png" data-width="512" data-height="512" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*BD0EV8VzKpc9o7qG8R9XLg.png"></figure><p name="55df" id="55df" class="graf graf--p graf-after--figure">Para a utilização do recurso, crie um release definition e adicione uma task de Web App.</p><figure name="5dc6" id="5dc6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cfAK7r-6h5b_VROzPp8g2Q.png" data-width="702" data-height="259" src="https://cdn-images-1.medium.com/max/800/1*cfAK7r-6h5b_VROzPp8g2Q.png"></figure><p name="c4e7" id="c4e7" class="graf graf--p graf-after--figure">Na sessão “File Transforms &amp; Variable Substitution Options” selecione “XML Variable Substitution”. Caso tenha arquivos .json que precisem ser alterados, especifique o caminho dos arquivos:</p><figure name="8920" id="8920" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cOXb7wzeKEAze9sSg6SKGw.png" data-width="388" data-height="226" src="https://cdn-images-1.medium.com/max/800/1*cOXb7wzeKEAze9sSg6SKGw.png"></figure><p name="9b0f" id="9b0f" class="graf graf--p graf-after--figure">Neste exemplo, irei alterar a uma chave de configuração no arquivo web.config:</p><figure name="3dcd" id="3dcd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*K26WD3Zy6VaAQRXXratqUA.png" data-width="470" data-height="152" src="https://cdn-images-1.medium.com/max/800/1*K26WD3Zy6VaAQRXXratqUA.png"></figure><p name="82bc" id="82bc" class="graf graf--p graf-after--figure">Adicione uma variável com o mesmo nome da key, neste caso “configuracao”, e o valor desejado da substituição:</p><figure name="1359" id="1359" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Flc2Aaxh0kXA-O4SxCZhWg.png" data-width="806" data-height="178" src="https://cdn-images-1.medium.com/max/800/1*Flc2Aaxh0kXA-O4SxCZhWg.png"></figure><p name="5340" id="5340" class="graf graf--p graf-after--figure">No caso de arquivos json, deverá ser especificado o nó no nome da chave:</p><figure name="3667" id="3667" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*iBdcONMNd2DOZlqLuu3rRg.png" data-width="440" data-height="178" src="https://cdn-images-1.medium.com/max/800/1*iBdcONMNd2DOZlqLuu3rRg.png"></figure><figure name="a9fd" id="a9fd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*e2FURP_OrQ-rMBar00W-Yg.png" data-width="845" data-height="224" src="https://cdn-images-1.medium.com/max/800/1*e2FURP_OrQ-rMBar00W-Yg.png"></figure><p name="55e6" id="55e6" class="graf graf--p graf-after--figure">E após estes simples procedimentos basta salvar a release definition e iniciar um novo deploy e a transformação será realizada. Neste exemplo, a aplicação foi publicada em um Web App e o valor definido na variável foi transformado:</p><figure name="ec55" id="ec55" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*a3g9L863Z2UvFFbFGJ1K-g.png" data-width="569" data-height="217" src="https://cdn-images-1.medium.com/max/800/1*a3g9L863Z2UvFFbFGJ1K-g.png"></figure><p name="65e2" id="65e2" class="graf graf--p graf-after--figure">Abaixo está um tooltip da própria task explicando em quais situações será possível utilizar este recurso:</p><figure name="ab9e" id="ab9e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TVK15wPOvrDrHIQM7GDc7Q.png" data-width="659" data-height="210" src="https://cdn-images-1.medium.com/max/800/1*TVK15wPOvrDrHIQM7GDc7Q.png"></figure><p name="4df6" id="4df6" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">Conclusão</strong></p><p name="7dd1" id="7dd1" class="graf graf--p graf-after--p">Antes da existência deste recurso, ou no caso de publicações que não utilizam WebApps, era necessário gerar um arquivo web.release.config, e alterar o valor para um token.</p><p name="6d89" id="6d89" class="graf graf--p graf-after--p">Com este novo processo, esta etapa não é mais necessária, onde precisamos apenas adicionar uma variável com o mesmo nome da key, e a task irá substituir os valores automaticamente.</p><p name="6faa" id="6faa" class="graf graf--p graf-after--p">Com isso o processo de gestão das configurações se torna muito mais rápido e eficiente!</p><p name="f2e6" id="f2e6" class="graf graf--p graf-after--p graf--trailing">Abraço!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/ae4b5141d034"><time class="dt-published" datetime="2018-03-31T00:05:53.558Z">March 31, 2018</time></a>.</p><p><a href="https://medium.com/@camargo-wes/transformando-configura%C3%A7%C3%B5es-de-xml-e-json-com-web-apps-ae4b5141d034" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

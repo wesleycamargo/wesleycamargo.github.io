@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Don’t repeat yourself! Creating Azure Bicep modules 💪</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Don’t repeat yourself! Creating Azure Bicep modules 💪</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Since our Infrastructure is Code now, why don’t we leverage the best software development practices? Check out this post on achieving…
+</section>
+<section data-field="body" class="e-content">
+<section name="f8cf" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ffab" id="ffab" class="graf graf--h3 graf--leading graf--title">Don’t repeat yourself! Creating Azure Bicep modules 💪</h3><p name="3f92" id="3f92" class="graf graf--p graf-after--h3">Since our Infrastructure is Code now, why don’t we leverage the best software development practices? Check out this post on achieving reusability on your IaC templates using Bicep Modules!</p><figure name="6ad2" id="6ad2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*ZB8clYDcM2jGQj71" data-width="6000" data-height="4000" src="https://cdn-images-1.medium.com/max/800/0*ZB8clYDcM2jGQj71"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@prateekkatyal?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@prateekkatyal?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener noopener" target="_blank">Prateek Katyal</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="fe16" id="fe16" class="graf graf--h3 graf-after--figure">What are Azure Bicep Modules?</h3><p name="671e" id="671e" class="graf graf--p graf-after--h3">Bicep Modules are the application of the <strong class="markup--strong markup--p-strong">Don’t Repeat Yourself </strong>principle, where a Bicep template calls another Bicep template. As a result, this practice enables the reusability of existing code and can speed up the creation of future resources.</p><p name="9109" id="9109" class="graf graf--p graf-after--p">Imagine, for example, that you need to control how infrastructure resources are created. To accomplish this, you can implement rules in the bicep templates that, for example, restrict the size of virtual machines or the regions in which they can be created.</p><p name="0161" id="0161" class="graf graf--p graf-after--p graf--trailing">Since the definition has already been created and the rules, will probably remain the same in the next project, it is not necessary to create a new definition. We can create a module that allows us to save valuable time and money by reusing these definitions.</p></div></div></section><section name="129c" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="522c" id="522c" class="graf graf--h3 graf--leading">How to create an Azure Bicep Module?</h3><p name="5bd8" id="5bd8" class="graf graf--p graf-after--h3">If you are already familiar with Bicep Templates, creating a Bicep Module is effortless, as a module has exactly the same structure and it is not necessary to add any special configuration. It is possible, inclusive, to reuse existing templates as modules.</p><figure name="7e36" id="7e36" class="graf graf--figure graf--iframe graf-after--p graf--trailing"><script src="https://gist.github.com/wesleycamargo/5f61af396a55d284c91bbc70bd06bf85?file=storage.bicep.js"></script></figure></div></div></section><section name="1651" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="44ae" id="44ae" class="graf graf--h3 graf--leading">How to consume an Azure Bicep Module?</h3><h4 name="1ac9" id="1ac9" class="graf graf--h4 graf-after--h3"><strong class="markup--strong markup--h4-strong"><em class="markup--em markup--h4-em">Declaring a Bicep Module</em></strong></h4><p name="555b" id="555b" class="graf graf--p graf-after--h4">When working with Bicep Modules, the syntax changes compared to resources. Instead of declaring <code class="markup--code markup--p-code">resource</code>the declaration is now <code class="markup--code markup--p-code">module</code><strong class="markup--strong markup--p-strong">. </strong>Additionally, it is necessary to reference the module path, which can be local or remote.</p><figure name="2fef" id="2fef" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qtbw9GCE45MafTDjuJ_6vg.png" data-width="523" data-height="229" src="https://cdn-images-1.medium.com/max/800/1*qtbw9GCE45MafTDjuJ_6vg.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><p name="9be4" id="9be4" class="graf graf--p graf-after--figure">It is also mandatory to add a symbolic name to the resource. The symbolic name can be used to recover an output from the module to be used in another part of the template.</p><figure name="7167" id="7167" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dvcRYdnC-LfnI9eJGBiCwA.png" data-width="523" data-height="229" src="https://cdn-images-1.medium.com/max/800/1*dvcRYdnC-LfnI9eJGBiCwA.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><p name="fb50" id="fb50" class="graf graf--p graf-after--figure">The property <code class="markup--code markup--p-code">name</code><strong class="markup--strong markup--p-strong"> </strong>is mandatory. It will become the nested template name in the final template.</p><figure name="6229" id="6229" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6W6RH47RoNV7GF6CfzRC-w.png" data-width="523" data-height="229" src="https://cdn-images-1.medium.com/max/800/1*6W6RH47RoNV7GF6CfzRC-w.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><h4 name="38ac" id="38ac" class="graf graf--h4 graf-after--figure"><strong class="markup--strong markup--h4-strong"><em class="markup--em markup--h4-em">Passing parameters to Bicep modules</em></strong></h4><p name="b233" id="b233" class="graf graf--p graf-after--h4">The parameters on modules follow the same syntax and contain the same features as regular templates. However, to send the parameters to a module it must be under the <code class="markup--code markup--p-code">params</code> node. It must match those declared in the module, including the validations.</p><figure name="2f75" id="2f75" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QOZF4MK2Y5SfT6AuO2m2jg.png" data-width="523" data-height="229" src="https://cdn-images-1.medium.com/max/800/1*QOZF4MK2Y5SfT6AuO2m2jg.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><figure name="7bd2" id="7bd2" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><script src="https://gist.github.com/wesleycamargo/5f61af396a55d284c91bbc70bd06bf85?file=main.bicep.js"></script></figure></div></div></section><section name="96c5" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8bc2" id="8bc2" class="graf graf--h3 graf--leading">How to deploy an Azure Bicep Module?</h3><p name="84e8" id="84e8" class="graf graf--p graf-after--h3">Deployment of Bicep Modules works exactly like Bicep Templates. It is possible to use <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli?WT.mc_id=DT-MVP-5004039" data-href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli?WT.mc_id=DT-MVP-5004039" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Azure CLI</a>, <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-powershell?WT.mc_id=DT-MVP-5004039" data-href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-powershell?WT.mc_id=DT-MVP-5004039" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Azure PowerShell</a>, or even through <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-rest?WT.mc_id=DT-MVP-5004039" data-href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-rest?WT.mc_id=DT-MVP-5004039" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Azure API.</a></p><p name="4dd9" id="4dd9" class="graf graf--p graf-after--p">I explain in more detail in <a href="https://medium.com/faun/creating-infrastructure-as-code-for-azure-with-azure-bicep-step-by-step-58f03cee75e1" data-href="https://medium.com/faun/creating-infrastructure-as-code-for-azure-with-azure-bicep-step-by-step-58f03cee75e1" class="markup--anchor markup--p-anchor" target="_blank">this post</a> how to deploy using Azure CLI. Below we can see the script used to deploy the templates and modules created above.</p><figure name="0e5b" id="0e5b" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/5f61af396a55d284c91bbc70bd06bf85?file=deploy.ps1.js"></script></figure><p name="00e4" id="00e4" class="graf graf--p graf-after--figure">After running it is possible to see in the deployments of Azure Resource Group the main.bicep deployment:</p><figure name="6be0" id="6be0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4QSoI-AuLcjYe9zxF6iiiQ.png" data-width="872" data-height="468" src="https://cdn-images-1.medium.com/max/800/1*4QSoI-AuLcjYe9zxF6iiiQ.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><p name="1346" id="1346" class="graf graf--p graf-after--figure">And if we click on the nested storage deployment we can observe the resource storageAccount being deployed :</p><figure name="df7e" id="df7e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gqdrDwcLHLaVUXVLbG31_Q.png" data-width="884" data-height="477" src="https://cdn-images-1.medium.com/max/800/1*gqdrDwcLHLaVUXVLbG31_Q.png"><figcaption class="imageCaption">Image prepared by the author</figcaption></figure><h3 name="0d5b" id="0d5b" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="9ed4" id="9ed4" class="graf graf--p graf-after--h3">Reusability is one of the main advantages that we can leverage from modularization in any programming language and with Infrastructure as Code templates, it wouldn’t be different. Another benefit is that it also will ensure that your environment is more stable as your templates will be already tested by others, and most importantly, will also save implementation time.</p><p name="9b5a" id="9b5a" class="graf graf--p graf-after--p">I hope this helps you, and see you at the next one!</p><figure name="fa4a" id="fa4a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*JSaWL5U0fpZZ0xeP.png" src="https://cdn-images-1.medium.com/max/800/0*JSaWL5U0fpZZ0xeP.png"></figure><h4 name="b917" id="b917" class="graf graf--h4 graf-after--figure">👋 If you find this helpful, please click the clap 👏 button below a few times to show your support for the author 👇</h4><h4 name="453a" id="453a" class="graf graf--h4 graf-after--h4 graf--trailing">🚀<a href="http://from.faun.to/r/8zxxd" data-href="http://from.faun.to/r/8zxxd" class="markup--anchor markup--h4-anchor" rel="noopener ugc nofollow noopener noopener noopener noopener" target="_blank">Join FAUN Developer Community &amp; Get Similar Stories in your Inbox Each Week</a></h4></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/70414b86e3ce"><time class="dt-published" datetime="2022-11-28T17:34:16.089Z">November 28, 2022</time></a>.</p><p><a href="https://medium.com/@camargo-wes/dont-repeat-yourself-creating-azure-bicep-modules-70414b86e3ce" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

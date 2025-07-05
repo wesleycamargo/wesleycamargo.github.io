@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to deploy Management Groups with Azure Bicep and Azure DevOps</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to deploy Management Groups with Azure Bicep and Azure DevOps</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you have several Subscriptions on your Azure Tenant, Management Groups can be very handy to organize them. Check in this post, on how to…
+</section>
+<section data-field="body" class="e-content">
+<section name="d73d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a7cd" id="a7cd" class="graf graf--h3 graf--leading graf--title">How to deploy Management Groups with Azure Bicep and Azure DevOps</h3><p name="1a32" id="1a32" class="graf graf--p graf-after--h3">If you have several Subscriptions on your Azure Tenant, Management Groups can be very handy to organize them. Check in this post, on how to deploy Management Groups using Azure Bicep.</p><figure name="f75b" id="f75b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dpWnelmmdCalVRtcf1k5fQ.jpeg" data-width="2968" data-height="2969" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*dpWnelmmdCalVRtcf1k5fQ.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@ianjbattaglia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@ianjbattaglia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Ian Battaglia</a> on <a href="https://unsplash.com/collections/16762197/data-center?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/collections/16762197/data-center?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="efae" id="efae" class="graf graf--h3 graf-after--figure">What are Azure Scopes?</h3><p name="96da" id="96da" class="graf graf--p graf-after--h3">According to official Microsoft documentation “<em class="markup--em markup--p-em">Scope</em> is the set of resources that access applies to.” This is used to have granularity when assigning permission in your Azure resources. The majority of Azure resources are deployed into the Resource Group scope, and when we use Azure bicep, this is the default. But there are four levels of scopes in Azure as we can see in the image below:</p><figure name="77a4" id="77a4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*7OACaXq6bHYTogMW.png" data-width="350" data-height="275" src="https://cdn-images-1.medium.com/max/800/0*7OACaXq6bHYTogMW.png"><figcaption class="imageCaption">Azure Scope levels — Image from <a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview?WT.mc_id=DT-MVP-5004039" data-href="https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview?WT.mc_id=DT-MVP-5004039" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Microsoft Docs</a></figcaption></figure><p name="66a2" id="66a2" class="graf graf--p graf-after--figure">With that said, when we are deploying a resource different than those deployed at the resource level, we need to specify against which scope we are running it. For Management groups, the scope must be the <strong class="markup--strong markup--p-strong">tenant. </strong>In the following sessions, we will see how to set it up.</p><h4 name="e2de" id="e2de" class="graf graf--h4 graf-after--p">Bicep scope to deploy Azure Management Groups</h4><p name="3129" id="3129" class="graf graf--p graf-after--h4">As said before, the default scope in an Azure Bicep script is the resource group. For most traditional resources such as App Services, or Storage Accounts, it is not necessary to specify it, but to deploy management groups it is necessary to specify the tenant as the target scope:</p><figure name="0cdc" id="0cdc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9ubvxa-Zjx8xk4dz0iucFw.png" data-width="593" data-height="140" src="https://cdn-images-1.medium.com/max/800/1*9ubvxa-Zjx8xk4dz0iucFw.png"><figcaption class="imageCaption">Image prepared by Author</figcaption></figure><p name="7b2b" id="7b2b" class="graf graf--p graf-after--figure">Below it’s possible to see the code necessary for the most basic creation of a Management Group:</p><figure name="986d" id="986d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/8e00956ed6e0b187e297cf1c2ad760cc?file=managementGroup.bicep.js"></script></figure><h4 name="a490" id="a490" class="graf graf--h4 graf-after--figure">How to call an Azure Bicep template at the Management Group scope with Azure CLI and Azure DevOps YAML pipelines</h4><p name="236c" id="236c" class="graf graf--p graf-after--h4">To run deployments against tenant scope it is also necessary to specify it in Azure CLI</p><figure name="47f4" id="47f4" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/8e00956ed6e0b187e297cf1c2ad760cc?file=Run-BicepAzCLI.ps1.js"></script></figure><p name="b2c5" id="b2c5" class="graf graf--p graf-after--figure">Below there is an Azure DevOps YAML pipeline with the task configured to deploy the bicep file created above:</p><figure name="daed" id="daed" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/8e00956ed6e0b187e297cf1c2ad760cc?file=azure-pipelines.yml.js"></script></figure><h3 name="c93d" id="c93d" class="graf graf--h3 graf-after--figure">SPN permissions to deploy Azure Management Groups</h3><p name="9747" id="9747" class="graf graf--p graf-after--h3">By default, the Service Principal Name does not have permission to deploy tenant resources. You need to grant it at the root scope “/” to make it work.</p><p name="b6bf" id="b6bf" class="graf graf--p graf-after--p">In this case, the error below will show up:</p><pre name="4e63" id="4e63" class="graf graf--pre graf-after--p">AuthorizationFailed: The client with object id does not have authorization to perform action &#39;Microsoft.Resources/deployments/validate/action&#39; over scope &#39;/providers/Microsoft.Resources/deployments/main&#39; or the scope is invalid.</pre><h4 name="c23f" id="c23f" class="graf graf--h4 graf-after--pre">How to elevate user permissions as Azure AD Global Administrator</h4><p name="289c" id="289c" class="graf graf--p graf-after--h4">First, you need to elevate your permissions as user Global Administrator into Azure AD:</p><figure name="1940" id="1940" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/8e00956ed6e0b187e297cf1c2ad760cc?file=Set-UserPermission.ps1.js"></script></figure><h4 name="7b6f" id="7b6f" class="graf graf--h4 graf-after--figure">How to grant Service Principal Name permissions to deploy Azure Management Groups</h4><p name="f86b" id="f86b" class="graf graf--p graf-after--h4">After setting up your permissions as Global Administrator, you are able to set your SPN with the correct permissions:</p><figure name="ecb7" id="ecb7" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/8e00956ed6e0b187e297cf1c2ad760cc?file=Set-SPNPermission.ps1.js"></script></figure><h3 name="d8ea" id="d8ea" class="graf graf--h3 graf-after--figure">The best Azure Management Groups naming convention</h3><p name="b608" id="b608" class="graf graf--p graf-after--h3">It is also crucial to properly name your Management Groups, making them easy to maintain, especially if you are adopting Infrastructure as Code with automated pipelines. Also, if you have multiple directories, you also need to efficiently identify which directory a particular management group belongs to.</p><p name="d0cc" id="d0cc" class="graf graf--p graf-after--p">My friend <a href="https://twitter.com/DevJevNL" data-href="https://twitter.com/DevJevNL" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">@DevJevNL</a> has an excellent proposal to tackle the naming convention in a series of posts, here is his suggestion for <a href="https://www.devjev.nl/posts/2022/the-ideal-management-group-naming-convention/" data-href="https://www.devjev.nl/posts/2022/the-ideal-management-group-naming-convention/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Management Groups.</a></p><h3 name="5dd1" id="5dd1" class="graf graf--h3 graf-after--p">Conclusion</h3><p name="3294" id="3294" class="graf graf--p graf-after--h3">Although it is a very simple process, there are some tricks to deploying management groups. In this post, I tried to clarify all the necessary steps to deploy it. Below it is possible to visualize the management group deployed in our Azure Tenant.</p><figure name="ba98" id="ba98" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*v7ss3g8wQRZUMN4XuXvs8w.png" data-width="922" data-height="166" src="https://cdn-images-1.medium.com/max/800/1*v7ss3g8wQRZUMN4XuXvs8w.png"><figcaption class="imageCaption">Image prepared by Author</figcaption></figure><h3 name="44ba" id="44ba" class="graf graf--h3 graf-after--figure">References</h3><p name="2831" id="2831" class="graf graf--p graf-after--h3"><a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin?WT.mc_id=DT-MVP-5004039" data-href="https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin?WT.mc_id=DT-MVP-5004039" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin</a></p><div name="014e" id="014e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/Azure/Enterprise-Scale/blob/main/docs/EnterpriseScale-Setup-azure.md" data-href="https://github.com/Azure/Enterprise-Scale/blob/main/docs/EnterpriseScale-Setup-azure.md" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/Azure/Enterprise-Scale/blob/main/docs/EnterpriseScale-Setup-azure.md"><strong class="markup--strong markup--mixtapeEmbed-strong">Enterprise-Scale/EnterpriseScale-Setup-azure.md at main · Azure/Enterprise-Scale</strong><br><em class="markup--em markup--mixtapeEmbed-em">This article will guide you through the process of configuring permissions in your Azure environment to enable ARM…</em>github.com</a><a href="https://github.com/Azure/Enterprise-Scale/blob/main/docs/EnterpriseScale-Setup-azure.md" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="43dadb4f5e13d2f831767220097b010a" data-thumbnail-img-id="0*FQu-TbB_eCQkbnrp" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*FQu-TbB_eCQkbnrp);"></a></div><figure name="2518" id="2518" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="0*VUK1-iKIQ90xUlTO.png" data-width="700" data-height="40" src="https://cdn-images-1.medium.com/max/800/0*VUK1-iKIQ90xUlTO.png"></figure><p name="b55c" id="b55c" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">If you find this helpful, please click the clap 👏 button below a few times to show your support for the author 👇</strong></p><h4 name="4f65" id="4f65" class="graf graf--h4 graf-after--p graf--trailing">🚀<a href="http://from.faun.to/r/8zxxd" data-href="http://from.faun.to/r/8zxxd" class="markup--anchor markup--h4-anchor" rel="noopener ugc nofollow noopener noopener noopener" target="_blank">Join FAUN &amp; get similar stories in your inbox each week</a></h4></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/7a2e20240a6"><time class="dt-published" datetime="2022-09-26T13:04:40.269Z">September 26, 2022</time></a>.</p><p><a href="https://medium.com/@camargo-wes/how-to-deploy-management-groups-with-azure-bicep-and-azure-devops-7a2e20240a6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Deploying a DotNet Core app in Azure Web App by command line</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Deploying a DotNet Core app in Azure Web App by command line</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you need to fast deploy your dotnet core App in Azure, but don’t want to configure an entire CI/CD Pipeline, check in this post on how…
+</section>
+<section data-field="body" class="e-content">
+<section name="19a5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="cbb5" id="cbb5" class="graf graf--h3 graf--leading graf--title">Deploying a DotNet Core app in Azure Web App by command line</h3><p name="ab7e" id="ab7e" class="graf graf--p graf-after--h3">If you need to fast deploy your dotnet core App in Azure, but don’t want to configure an entire CI/CD Pipeline, check in this post on how to deploy it!</p><p name="2076" id="2076" class="graf graf--p graf-after--p">To deploy the web app we will use a simple DotNet Core MVC application.</p><p name="cdc6" id="cdc6" class="graf graf--p graf-after--p">First of all, let´s create some parameters to prepare our resources. We are using a random id to avoid create the resources with some existing name:</p><figure name="7d99" id="7d99" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/cbb5ba882ddc6910a5366a06a55a0ef8?file=AzureDeploymentGuide-DeployWebApp-AzCLI-Parametrization.ps1.js"></script></figure><p name="6230" id="6230" class="graf graf--p graf-after--figure">To create the app, we will use an MVC Sample in the dotnet core templates. If you already have an existing project to deploy, skip the first line. We will prepare the publishing package with the dotnet core publish command and then zip it in a file:</p><figure name="ad24" id="ad24" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/cbb5ba882ddc6910a5366a06a55a0ef8?file=AzureDeploymentGuide-DeployWebApp-AzCLI-CreateApp.ps1.js"></script></figure><p name="5cbd" id="5cbd" class="graf graf--p graf-after--figure">In Azure, we will create a resource group and an app service plan, that are pre reqs to run a WebApp.</p><figure name="1a1a" id="1a1a" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/cbb5ba882ddc6910a5366a06a55a0ef8?file=AzureDeploymentGuide-DeployWebApp-AzCLI-AzureResources.ps1.js"></script></figure><p name="36cd" id="36cd" class="graf graf--p graf-after--figure">And finally, execute the deployment in the WebApp created above.</p><figure name="1b96" id="1b96" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/cbb5ba882ddc6910a5366a06a55a0ef8?file=AzureDeploymentGuide-DeployWebApp-AzCLI-Deployment.ps1.js"></script></figure></div><div class="section-inner sectionLayout--outsetColumn"><figure name="05d0" id="05d0" class="graf graf--figure graf--layoutOutsetCenter graf-after--figure"><img class="graf-image" data-image-id="1*LGnt_avJ0RbzxUxvWWKv4A.png" data-width="1237" data-height="624" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*LGnt_avJ0RbzxUxvWWKv4A.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="0fef" id="0fef" class="graf graf--p graf-after--figure">To make it easier below is a full version of the script:</p><figure name="154f" id="154f" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/cbb5ba882ddc6910a5366a06a55a0ef8?file=AzureDeploymentGuide-DeployWebApp-AzCLI.ps1.js"></script></figure><p name="b263" id="b263" class="graf graf--p graf-after--figure graf--trailing">See you in the next post!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/cede4f021951"><time class="dt-published" datetime="2021-01-07T08:01:16.495Z">January 7, 2021</time></a>.</p><p><a href="https://medium.com/@camargo-wes/deploying-a-dotnet-core-app-in-azure-web-app-by-command-line-cede4f021951" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

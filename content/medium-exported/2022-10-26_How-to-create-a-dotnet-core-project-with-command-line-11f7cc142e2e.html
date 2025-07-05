@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to create a dotnet core project with command line</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to create a dotnet core project with command line</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In this post, we will see how to simply create a dotnet core application using the command line. For that, we will use Windows Terminal…
+</section>
+<section data-field="body" class="e-content">
+<section name="a741" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b560" id="b560" class="graf graf--h3 graf--leading graf--title">How to create a dotnet core project with command line</h3><p name="1776" id="1776" class="graf graf--p graf-after--h3">In this post, we will see how to simply create a dotnet core application using the command line. For that, we will use Windows Terminal with PowerShell, but it is possible to use any terminal for it :)</p><figure name="adf1" id="adf1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*bpTSYTtQASQsZBf1" data-width="4075" data-height="3056" data-unsplash-photo-id="a4X1cdC1QAc" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*bpTSYTtQASQsZBf1"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@lordarcadius?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@lordarcadius?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Vipul Jha</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="eac4" id="eac4" class="graf graf--h3 graf-after--figure">Installing dotnet core with command line</h3><p name="a4bd" id="a4bd" class="graf graf--p graf-after--h3">Install dotnet core with the command line is quite simple. For that, we will use Winget with the command below:</p><figure name="ed2d" id="ed2d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/0629125feadceaa8f46a615f95391b81?file=install-dotnetcore.ps1.js"></script></figure><h3 name="49cd" id="49cd" class="graf graf--h3 graf-after--figure">Creating dotnet project in Windows Terminal</h3><p name="0026" id="0026" class="graf graf--p graf-after--h3">For this post, we will use Windows Terminal, but you can use any terminal that you want.</p><p name="a173" id="a173" class="graf graf--p graf-after--p">Open the terminal in the directory that you want to create your project and type the command <code class="markup--code markup--p-code">dotnet new webapp -n demo</code> . It will generate a directory called “<strong class="markup--strong markup--p-strong">demo” </strong>within the project structure.</p><figure name="df64" id="df64" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*08bKMGd2HDp7FNVYBkk1FA.png" data-width="958" data-height="508" src="https://cdn-images-1.medium.com/max/800/1*08bKMGd2HDp7FNVYBkk1FA.png"></figure><p name="0cad" id="0cad" class="graf graf--p graf-after--figure">Enter into the directory created and type <code class="markup--code markup--p-code">code .</code> . This command will open the Visual Studio Code in your project directory:</p><figure name="c602" id="c602" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TXv2VCIEUCL6IB1HJ1Z9hg.png" data-width="958" data-height="581" src="https://cdn-images-1.medium.com/max/800/1*TXv2VCIEUCL6IB1HJ1Z9hg.png"></figure><p name="879a" id="879a" class="graf graf--p graf-after--figure">In the VS Code is possible to see the project structure, as we can see below:</p><figure name="391b" id="391b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*40oFqCrIUrJMRJjI0txVOA.png" data-width="1024" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*40oFqCrIUrJMRJjI0txVOA.png"></figure><h3 name="1ecf" id="1ecf" class="graf graf--h3 graf-after--figure">How to build and run a dotnet core project locally</h3><p name="8be8" id="8be8" class="graf graf--p graf-after--h3">Now let’s build our dotnet project to ensure everything is working properly. The easiest way to do that is using the integrated terminal in VS Code.</p><p name="fb8f" id="fb8f" class="graf graf--p graf-after--p">To open the terminal type <code class="markup--code markup--p-code">ctrl + `</code> or go to <strong class="markup--strong markup--p-strong">View &gt; Terminal. </strong>In the terminal that will appear at the bottom of your VS Code, type the command <code class="markup--code markup--p-code">dotnet build</code> . If everything goes well you should see the <strong class="markup--strong markup--p-strong">Build succeeded </strong>message.</p><figure name="8e60" id="8e60" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ay0Vk78CsEux4r2KuxV2PQ.png" data-width="1167" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*Ay0Vk78CsEux4r2KuxV2PQ.png"></figure><p name="9924" id="9924" class="graf graf--p graf-after--figure">We can now run our web app with the command <code class="markup--code markup--p-code">dotnet run</code> . It will start the web app locally in some ports. You can copy one of them and open it on your browser:</p><figure name="f858" id="f858" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Jtan4uZ740glcB0y3OXBEg.png" data-width="1167" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*Jtan4uZ740glcB0y3OXBEg.png"></figure><figure name="8b1d" id="8b1d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*N21SjaR9uc_j1XBD2xOfpQ.png" data-width="1070" data-height="475" src="https://cdn-images-1.medium.com/max/800/1*N21SjaR9uc_j1XBD2xOfpQ.png"></figure><h3 name="b8a2" id="b8a2" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="e995" id="e995" class="graf graf--p graf-after--h3">In further posts, we will see more about DevOps practices, and having a real application to start with is crucial to understand all the steps that will be applied in a real-life scenario.</p><p name="cc24" id="cc24" class="graf graf--p graf-after--p graf--trailing">I hope this post could be useful and see you in the next one!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/11f7cc142e2e"><time class="dt-published" datetime="2022-10-26T16:21:02.381Z">October 26, 2022</time></a>.</p><p><a href="https://medium.com/@camargo-wes/how-to-create-a-dotnet-core-project-with-command-line-11f7cc142e2e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

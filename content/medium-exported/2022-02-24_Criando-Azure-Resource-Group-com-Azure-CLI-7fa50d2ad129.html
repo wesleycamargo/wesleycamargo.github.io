@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Criando Azure Resource Group com Azure CLI</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Criando Azure Resource Group com Azure CLI</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+O Azure CLI é uma interface de linha de comando para o Azure. Ele pode ser usado com PowerShell ou em bash, com ele é possível criar…
+</section>
+<section data-field="body" class="e-content">
+<section name="d3a4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5ade" id="5ade" class="graf graf--h3 graf--leading graf--title">Criando Azure Resource Group com Azure CLI</h3><p name="0899" id="0899" class="graf graf--p graf-after--h3">O Azure CLI é uma interface de linha de comando para o Azure. Ele pode ser usado com PowerShell ou em bash, com ele é possível criar recursos, resource groups, executar ações no Azure entre outras coisas. Aqui vou mostrar os comandos básicos para conectar ao Azure utilizando o Azure CLI e como criar um resource group.</p><figure name="de78" id="de78" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cilM3e42GLTP7Tod8bXeQg.jpeg" data-width="3000" data-height="2000" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*cilM3e42GLTP7Tod8bXeQg.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@fakurian?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@fakurian?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Milad Fakurian</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><p name="d8d1" id="d8d1" class="graf graf--p graf-after--figure">No vídeo abaixo é possível acompanhar todo o processe de conexão ao Azure e criação do Resource Group usando Azure CLI. Após o vídeo estão os comandos utilizados e um breve resumo sobre seu uso.</p><figure name="102a" id="102a" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/miZ7wyZ7anQ?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><h3 name="20c4" id="20c4" class="graf graf--h3 graf-after--figure">Como conectar ao Azure com Azure CLI</h3><h4 name="a74c" id="a74c" class="graf graf--h4 graf-after--h3">Azure CLI - comandos para Account</h4><p name="ae26" id="ae26" class="graf graf--p graf-after--h4">Abaixo estão todos os comandos utilizados para realizar login e configurar a Azure Subscription para ser utilizada</p><figure name="1412" id="1412" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/a379c126d3eb87930ab7aa19b21615a6?file=LoginAndSetAccount.ps1.js"></script></figure><p name="a518" id="a518" class="graf graf--p graf-after--figure">Agora vamos ver os detalhes de execuçao dos comandos:</p><p name="707d" id="707d" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">az -h</code> — Lista os comandos disponíveis no Azure CLI</p><figure name="4840" id="4840" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xtFjXLBbgrQw6IOTLT5HZA.png" data-width="1233" data-height="772" src="https://cdn-images-1.medium.com/max/800/1*xtFjXLBbgrQw6IOTLT5HZA.png"></figure><p name="1d14" id="1d14" class="graf graf--p graf-after--figure"><code class="markup--code markup--p-code">az login</code>- Abre a página de login no browser para selecionar a conta que será conectada</p><figure name="ac19" id="ac19" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cFaJ-sa-gDYIgWNEKGGXOA.png" data-width="464" data-height="595" src="https://cdn-images-1.medium.com/max/800/1*cFaJ-sa-gDYIgWNEKGGXOA.png"></figure><p name="1f80" id="1f80" class="graf graf--p graf-after--figure"><code class="markup--code markup--p-code">az account list</code> - Lista as subscription disponíveis<br><code class="markup--code markup--p-code">az account set -subscription</code> - Seleciona a subscription que será usada<br><code class="markup--code markup--p-code">az account show</code> - Exibe as informações da subscription atual</p><figure name="72eb" id="72eb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UXnIG5vzHh8dZ51X44rqtw.png" data-width="952" data-height="508" src="https://cdn-images-1.medium.com/max/800/1*UXnIG5vzHh8dZ51X44rqtw.png"></figure><h3 name="2633" id="2633" class="graf graf--h3 graf-after--figure">Como criar um Azure Resource Group com Azure CLI</h3><h4 name="4b34" id="4b34" class="graf graf--h4 graf-after--h3">Azure CLI — comandos para Resource Group</h4><p name="506f" id="506f" class="graf graf--p graf-after--h4"><code class="markup--code markup--p-code">az group -h</code> - Lista os comandos disponíveis para Resource Groups<br><code class="markup--code markup--p-code">az group create -h</code> - Lista os argumentos necessários para criar um Resource Group</p><figure name="365f" id="365f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*q9u4264fwYxWQQ2l2ieLEA.png" data-width="1112" data-height="772" src="https://cdn-images-1.medium.com/max/800/1*q9u4264fwYxWQQ2l2ieLEA.png"></figure><p name="5477" id="5477" class="graf graf--p graf-after--figure"><code class="markup--code markup--p-code">az group create --location -–name</code> - Cria um Resource Group</p><figure name="11ca" id="11ca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZKz9LJWr6lrBvZFPGKMJjA.png" data-width="1032" data-height="388" src="https://cdn-images-1.medium.com/max/800/1*ZKz9LJWr6lrBvZFPGKMJjA.png"></figure><p name="34aa" id="34aa" class="graf graf--p graf-after--figure"><code class="markup--code markup--p-code">az group list --output table</code> - Lista Resource Groups da subscription em formato de tabela</p><figure name="040a" id="040a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ru6Eh_JTfYgz9ooYcZqZ6w.png" data-width="1032" data-height="316" src="https://cdn-images-1.medium.com/max/800/1*ru6Eh_JTfYgz9ooYcZqZ6w.png"></figure><p name="04a6" id="04a6" class="graf graf--p graf-after--figure graf--trailing"><code class="markup--code markup--p-code">az group delete --name</code>- Apaga o Resource Group</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/7fa50d2ad129"><time class="dt-published" datetime="2022-02-24T17:26:54.075Z">February 24, 2022</time></a>.</p><p><a href="https://medium.com/@camargo-wes/criando-azure-resource-group-com-azure-cli-7fa50d2ad129" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to suppress warning and error messages in Azure CLI</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to suppress warning and error messages in Azure CLI</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In Azure CLI some commands can return errors and warning messages, which can cause troubles on your script, so check out how to suppress it
+</section>
+<section data-field="body" class="e-content">
+<section name="3aa5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5aab" id="5aab" class="graf graf--h3 graf--leading graf--title">How to suppress warning and error messages in Azure CLI</h3><h4 name="5d6a" id="5d6a" class="graf graf--h4 graf-after--h3 graf--subtitle">In Azure CLI some commands can return errors and warning messages, which can cause troubles on your script, so check out how to suppress it</h4><figure name="e0d9" id="e0d9" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="0*CRHG3CI34LabcOV4.jpeg" data-width="700" data-height="466" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*CRHG3CI34LabcOV4.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@ahsanjaya?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@ahsanjaya?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener ugc nofollow noopener noopener" target="_blank">Muhammad Daudy</a> on <a href="https://unsplash.com/s/photos/warning?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/warning?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener ugc nofollow noopener noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="6481" id="6481" class="graf graf--h3 graf-after--figure">How to suppress warnings on Azure CLI</h3><h4 name="a8c7" id="a8c7" class="graf graf--h4 graf-after--h3">Command group is in preview and under development</h4><p name="a951" id="a951" class="graf graf--p graf-after--h4">In some cases the CLI used can be under development and show the message: <code class="markup--code markup--p-code u-paddingRight0 u-marginRight0">Command group is in preview and under development. Reference and support levels: <a href="https://aka.ms/CLI_refstatus" data-href="https://aka.ms/CLI_refstatus" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">https://aka.ms/CLI_refstatus</a></code></p><p name="b65c" id="b65c" class="graf graf--p graf-after--p">At the moment that I am writing this post, the az devops CLI variable-group for example is always returning the message above, which have been causing troubles and breaking my pester tests :)</p><figure name="614c" id="614c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*SHfQUJPYn9MuJ-i3.png" data-width="700" data-height="82" src="https://cdn-images-1.medium.com/max/800/0*SHfQUJPYn9MuJ-i3.png"><figcaption class="imageCaption">Photo prepared by author</figcaption></figure><h4 name="fafb" id="fafb" class="graf graf--h4 graf-after--figure">Quiet mode on Azure CLI</h4><p name="c908" id="c908" class="graf graf--p graf-after--h4">For Azure CLI, the simplest way to make the commands “quiet” is by adding the global parameter <code class="markup--code markup--p-code">--only-show-errors</code> in your command. <strong class="markup--strong markup--p-strong">It will suppress only the warnings </strong>and keep the message in case you have any errors during the execution.</p><p name="c1f4" id="c1f4" class="graf graf--p graf-after--p">So in our example for <code class="markup--code markup--p-code">az pipelines variable-group</code> our command will be like this:</p><pre name="024d" id="024d" class="graf graf--pre graf-after--p">az pipelines variable-group list --org $organization -p $project --only-show-errors</pre><h3 name="7632" id="7632" class="graf graf--h3 graf-after--pre">How to suppress errors on Azure CLI</h3><p name="283f" id="283f" class="graf graf--p graf-after--h3">In some cases, you may need to also suppress the errors during your script execution and there is one more option for it. I would recommend this approach only if you really do not care if something went wrong during your script execution.</p><h3 name="3b0f" id="3b0f" class="graf graf--h3 graf-after--p">Redirecting the console output STDERR</h3><p name="4fc8" id="4fc8" class="graf graf--p graf-after--h3">A common scenario to redirect streams is when the symbol <code class="markup--code markup--p-code">&gt;</code> is used to write the output of the command in a file. It redirects the standard output - STDOUT - to the file added as a parameter.</p><p name="2b48" id="2b48" class="graf graf--p graf-after--p">In the situation that is necessary to suppress the errors, we need to redirect the output of the error stream — STDERR.</p><p name="3ee6" id="3ee6" class="graf graf--p graf-after--p">To do it you simply need to add <code class="markup--code markup--p-code">2&gt;nul</code> after the CLI command, which means that the second stream (STDERR) will be redirected to <code class="markup--code markup--p-code">null</code> .</p><p name="a99d" id="a99d" class="graf graf--p graf-after--p">So in our example for <code class="markup--code markup--p-code">az pipelines variable-group</code> the command will be:</p><pre name="cdef" id="cdef" class="graf graf--pre graf-after--p">az pipelines variable-group list --org $organization -p $project 2&gt;nul</pre><h3 name="b680" id="b680" class="graf graf--h3 graf-after--pre">Conclusion</h3><p name="afbb" id="afbb" class="graf graf--p graf-after--h3">Although this topic looks simple, sometimes it’s not so easy to find this information in the documentation, especially regarding the error suppressing topic, and also the comparison of both approaches is not documented.</p><p name="1633" id="1633" class="graf graf--p graf-after--p">I grouped both, how to suppress warnings and errors in one place, so would be to choose which option suits better in each scenario.</p><h3 name="331f" id="331f" class="graf graf--h3 graf-after--p">References</h3><p name="63e3" id="63e3" class="graf graf--p graf-after--h3"><a href="https://docs.microsoft.com/en-us/troubleshoot/cpp/redirecting-error-command-prompt" data-href="https://docs.microsoft.com/en-us/troubleshoot/cpp/redirecting-error-command-prompt" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">Redirecting error from Command Prompt — Visual C++ | Microsoft Docs</a></p><p name="4569" id="4569" class="graf graf--p graf-after--p graf--trailing"><a href="https://github.com/Azure/azure-cli/issues/13384" data-href="https://github.com/Azure/azure-cli/issues/13384" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">https://github.com/Azure/azure-cli/issues/13384</a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/34cece53591c"><time class="dt-published" datetime="2021-12-20T08:02:01.951Z">December 20, 2021</time></a>.</p><p><a href="https://medium.com/@camargo-wes/how-to-suppress-warnings-and-errors-messages-in-azure-cli-34cece53591c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

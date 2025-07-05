@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Getting Started with Azure: What are Azure Virtual Machines and how to create it using Terraform</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Getting Started with Azure: What are Azure Virtual Machines and how to create it using Terraform</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Azure VMs are like your own computer on the cloud. You can choose between different Operational Systems, such as Linux and Windows, and…
+</section>
+<section data-field="body" class="e-content">
+<section name="c06d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="215d" id="215d" class="graf graf--h3 graf--leading graf--title">Getting Started with Azure: What are Azure Virtual Machines and how to create it using Terraform</h3><p name="245d" id="245d" class="graf graf--p graf-after--h3">Azure VMs are like your own computer on the cloud. You can choose between different Operational Systems, such as Linux and Windows, and they can be used for different goals, like hosting a website for example.</p><figure name="2918" id="2918" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*SbgJGQvFOAmWJQfV" data-width="4408" data-height="2628" data-unsplash-photo-id="klWUhr-wPJ8" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*SbgJGQvFOAmWJQfV"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@imgix?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@imgix?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">imgix</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p name="b816" id="b816" class="graf graf--p graf-after--figure">Virtual Machines are part of a category called Infrastructure as Code, and they are still relevant in many scenarios, even with the advent of Platform as Code, where you are in control of many aspects, such as security, identity and access, high availability, and others.</p><h3 name="689d" id="689d" class="graf graf--h3 graf-after--p">What do I need to create a Virtual Machine on Azure?</h3><p name="6606" id="6606" class="graf graf--p graf-after--h3">To create the VM there are a few Azure resources that are necessary to be created before, as we can see in the image below:</p><figure name="57d7" id="57d7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*B2QjgH9A_DVlS9HMakuKTA.png" data-width="521" data-height="411" src="https://cdn-images-1.medium.com/max/800/1*B2QjgH9A_DVlS9HMakuKTA.png"></figure><h4 name="142d" id="142d" class="graf graf--h4 graf-after--figure">Resources that are Pre-requisites</h4><p name="4e66" id="4e66" class="graf graf--p graf-after--h4">There are some resources that are not necessarily part of the same life cycle of your VM, and you might have already created them on your Azure environment. On the script that I am providing below, they are being created, but you might decide to use a resource that already exists.</p><p name="4b86" id="4b86" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Resource Group: </strong>A resource group works similarly to a folder, where you can group the resources that have something in common. It can be resources of the same type, such as VMs, or the most recommended, resources that share the same life cycle.</p><p name="9acc" id="9acc" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Virtual Network: </strong>In an Azure VNet, you are able to create a private space, where your resources can communicate securely. It works similarly to the network that you are connected to right now to read this post, but it sits on Azure.</p><p name="6209" id="6209" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Subnet:</strong> They are subdivisions of a Virtual Network, helping to keep organized and segmented by different types of resources, like Databases, Front and Backend applications.</p><h4 name="fc79" id="fc79" class="graf graf--h4 graf-after--p">Resources that are part of the Virtual Machine life cycle</h4><p name="ce10" id="ce10" class="graf graf--p graf-after--h4"><strong class="markup--strong markup--p-strong">Disks: </strong>Disks are used to store operating systems, applications, or data. Each VM created on Azure has at least one OS Disk, but it can have multiple.</p><p name="c3c0" id="c3c0" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Network Interface Card:</strong> Also known as NIC, a Network Interface Card is responsible for connecting the VM with the network that we saw earlier. Similar to disks, each VM must have at least one, but also multiple NICs are supported.</p><p name="e507" id="e507" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Public IP:</strong> A Public IP is the communication between the VM and the world. This resource is not mandatory, and in most cases inside a business context, it should be created very cautiously, to avoid any security risk. However, as it is a simple test and I don’t want to complicate it, we need the Public IP to be able to connect to our VM. It is connected to the Network Interface.</p><h3 name="e794" id="e794" class="graf graf--h3 graf-after--p">Terraform Script</h3><h4 name="85d6" id="85d6" class="graf graf--h4 graf-after--h3">Pre-requisites</h4><p name="6218" id="6218" class="graf graf--p graf-after--h4">Below is the section of Terraform that creates the pre-requisites. As I mentioned before, it is possible to use existing resources, however, you need to adapt the script to use them.</p><figure name="79a9" id="79a9" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/319c7c0acf168ec66b00ab4305c51701?file=pre-reqs.tf.js"></script></figure><p name="5cca" id="5cca" class="graf graf--p graf-after--figure">In this script, we are creating the resource group, virtual network, and subnet.</p><h4 name="8e7e" id="8e7e" class="graf graf--h4 graf-after--p">Virtual Machine</h4><p name="7f58" id="7f58" class="graf graf--p graf-after--h4">Finally, this is the script to create the VM resources. Here we create first a Public IP, the Network Interface Card, and associate the PIP on it, and a VM. Note that the Terraform VM resource already abstracts the disk internally. It’s also interesting to highlight that the VM associates the NIC created before, creating a dependency, which Terraform will identify and create in the correct order.</p><figure name="f86d" id="f86d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/319c7c0acf168ec66b00ab4305c51701?file=vm.tf.js"></script></figure><p name="4f72" id="4f72" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">Complete Script</strong></p><p name="09ba" id="09ba" class="graf graf--p graf-after--p">Below is the complete script, including provider, variables, and outputs:</p><figure name="09b3" id="09b3" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/319c7c0acf168ec66b00ab4305c51701?file=complete-script.tf.js"></script></figure><h3 name="76a0" id="76a0" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="51dc" id="51dc" class="graf graf--p graf-after--h3">Below it is the link to my GitHub repository where I am creating a library to have all references related to Terraform. I hope that this post despite being simple might be helpful! <br><a href="https://github.com/wesleycamargo/terraform" data-href="https://github.com/wesleycamargo/terraform" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">wesleycamargo/terraform (github.com)</a></p><figure name="1cd8" id="1cd8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*0rM_F_9XoS3sP5GW.png" data-width="700" data-height="40" src="https://cdn-images-1.medium.com/max/800/0*0rM_F_9XoS3sP5GW.png"></figure><h4 name="ce7e" id="ce7e" class="graf graf--h4 graf-after--figure">👋 If you find this helpful, please click the clap 👏 button below a few times to show your support for the author 👇</h4><h4 name="070e" id="070e" class="graf graf--h4 graf-after--h4 graf--trailing">🚀<a href="http://from.faun.to/r/8zxxd" data-href="http://from.faun.to/r/8zxxd" class="markup--anchor markup--h4-anchor" rel="noopener ugc nofollow noopener noopener noopener" target="_blank">Join FAUN Developer Community &amp; Get Similar Stories in your Inbox Each Week</a></h4></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/254c1cb6642b"><time class="dt-published" datetime="2023-11-21T17:45:11.354Z">November 21, 2023</time></a>.</p><p><a href="https://medium.com/@camargo-wes/getting-started-with-azure-what-are-azure-virtual-machines-and-how-to-create-it-using-terraform-254c1cb6642b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Save Money with Azure: Handling your resources with Azure Functions</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Save Money with Azure: Handling your resources with Azure Functions</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+In fact, when a VM is created, there is an option for shutdown within the scheduled time, but it’s a bit limited, due to nonexistence of…
+</section>
+<section data-field="body" class="e-content">
+<section name="c82d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="5de4" id="5de4" class="graf graf--h4 graf--leading graf--kicker">ONE OF THE INCESSANT THINGS WHEN WE USE CLOUD PROVIDERS, IT’S HOW TO HAVE THE BIGGEST EFFICIENCY WITH OUR RESOURCES. IF YOU HAVE AZURE VIRTUAL MACHINES, FOR EXAMPLE, REDUCE THE TIME OF NON-PRODUCTION ENVIRONMENTS STAYS TURNED ON TO 12 HOURS AT WEEKDAYS CAN REDUCE YOUR BILL BY 67%.</h4><h3 name="0f9d" id="0f9d" class="graf graf--h3 graf-after--h4 graf--title">Save Money with Azure: Handling your resources with Azure Functions</h3><p name="5385" id="5385" class="graf graf--p graf-after--h3">In fact, when a VM is created, there is an option for shutdown within the scheduled time, but it’s a bit limited, due to nonexistence of an option to startup the VMs, nor the option to do this for dependent VMs as a Domain Controller that should be online when the other VMs start.</p><p name="0260" id="0260" class="graf graf--p graf-after--p">A good, simple, and cheaper solution for this, is to use an Azure Function to startup and shutdown the Virtual Machines. So let’s see how we can do it!</p><h3 name="bd0b" id="bd0b" class="graf graf--h3 graf-after--p">What you will need:</h3><ul class="postList"><li name="d4e9" id="d4e9" class="graf graf--li graf-after--h3">Azure Account</li><li name="245d" id="245d" class="graf graf--li graf-after--li">Visual Studio Code</li><li name="9674" id="9674" class="graf graf--li graf-after--li">VS Code — Azure Functions Plugin</li><li name="5e34" id="5e34" class="graf graf--li graf-after--li">An Azure Virtual Machine</li></ul><h3 name="fa17" id="fa17" class="graf graf--h3 graf-after--li">Preparing the Virtual Machine</h3><p name="cbf2" id="cbf2" class="graf graf--p graf-after--h3">Now we need to create a beacon in the VMs that we need to shutdown/startup. For this function, we’ll use a tag <code class="markup--code markup--p-code">shutdownDaily</code> with the value <code class="markup--code markup--p-code">true.</code> Later we will filter the VMs with this tag and shut it down in the function script.</p><figure name="d2b6" id="d2b6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*VMDq41L7qXNa_uWH.png" data-width="914" data-height="483" src="https://cdn-images-1.medium.com/max/800/0*VMDq41L7qXNa_uWH.png"></figure><h3 name="7a72" id="7a72" class="graf graf--h3 graf-after--figure">Creating the shutdown function.</h3><p name="266f" id="266f" class="graf graf--p graf-after--h3">Open the Visual Studio Code, and create a new Powershell Function:</p><figure name="a4c1" id="a4c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*x3FsmyoMMUNj0q89.png" data-width="1430" data-height="710" src="https://cdn-images-1.medium.com/max/800/0*x3FsmyoMMUNj0q89.png"></figure><p name="1f87" id="1f87" class="graf graf--p graf-after--figure">Select the Timer Function option and give a name to the function:</p><figure name="a692" id="a692" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*P6mXyablY5cs1Jfv.png" data-width="1430" data-height="710" src="https://cdn-images-1.medium.com/max/800/0*P6mXyablY5cs1Jfv.png"></figure><p name="0f9a" id="0f9a" class="graf graf--p graf-after--figure">Now we need to define how often the function will be executed. Here we will execute every day at 7 PM.</p><p name="47e6" id="47e6" class="graf graf--p graf-after--p">The Azure Functions use cron expression to define the frequency. (<a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp" data-href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp" class="markup--anchor markup--p-anchor" rel="noopener nofollow noopener" target="_blank">You can have more information here</a>)</p><figure name="2e74" id="2e74" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*n0gQs-THU0idujzR.png" data-width="1430" data-height="710" src="https://cdn-images-1.medium.com/max/800/0*n0gQs-THU0idujzR.png"></figure><p name="1c31" id="1c31" class="graf graf--p graf-after--figure">It will create a basic function based on a template. We just need to keep the parameter <code class="markup--code markup--p-code">$Timer.</code></p><figure name="d37a" id="d37a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*oLUB3JIPcB0ma_tU.png" data-width="1218" data-height="710" src="https://cdn-images-1.medium.com/max/800/0*oLUB3JIPcB0ma_tU.png"></figure><p name="72fc" id="72fc" class="graf graf--p graf-after--figure">For ease, you can replace all code with the block below:</p><figure name="9a3d" id="9a3d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/3da8e497fc124cacab67bc0989bc7585#file-function-shutdownvms-ps1.js"></script></figure><h3 name="ffa5" id="ffa5" class="graf graf--h3 graf-after--figure">Publishing the function on Azure</h3><p name="baac" id="baac" class="graf graf--p graf-after--h3">Now let’s publish the function on Azure Account.</p><p name="dee0" id="dee0" class="graf graf--p graf-after--p">First Sign in to Azure. It will redirect you to a Microsoft Login Screen in your browser. Enter your credentials and go back to Visual Studio Code.</p><figure name="bd57" id="bd57" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*WmwVA4gnSHHC2RDf.png" data-width="435" data-height="272" src="https://cdn-images-1.medium.com/max/800/0*WmwVA4gnSHHC2RDf.png"></figure><p name="f3c2" id="f3c2" class="graf graf--p graf-after--figure">Click in the Upload Icon, and select the desired subscription to deploy:</p><figure name="341e" id="341e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*BYBgma7b7A8X1kAG.png" data-width="873" data-height="513" src="https://cdn-images-1.medium.com/max/800/0*BYBgma7b7A8X1kAG.png"></figure><p name="0862" id="0862" class="graf graf--p graf-after--figure">Now create a new function, give a name, and select the region. It will create all resources with this name. If you need to change something, use the advanced mode. After creation it will deploy the code automatically:</p><figure name="c643" id="c643" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*YgzrA2wK4fkZ1byd.png" data-width="739" data-height="440" src="https://cdn-images-1.medium.com/max/800/0*YgzrA2wK4fkZ1byd.png"></figure><h3 name="5998" id="5998" class="graf graf--h3 graf-after--figure">Given permissions to the function</h3><p name="3c9a" id="3c9a" class="graf graf--p graf-after--h3">After creating the function, we need to authorize it to manipulate Azure Resources. On function Settings, open Identity menu and change the status to On and save this.</p><figure name="e740" id="e740" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*vvKuP65ge7TiWRdW.png" data-width="900" data-height="613" src="https://cdn-images-1.medium.com/max/800/0*vvKuP65ge7TiWRdW.png"></figure><p name="4457" id="4457" class="graf graf--p graf-after--figure">It will enable Azure role assignments button, touch this, and Add role assignment. Here I’ll create permission as a contributor int the subscription, but use the best approach to your environment:</p><figure name="5974" id="5974" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*0nDFGluJUhFbx2pj.png" data-width="895" data-height="643" src="https://cdn-images-1.medium.com/max/800/0*0nDFGluJUhFbx2pj.png"></figure><figure name="c2f4" id="c2f4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*5TpXmm0HWeY8kJtp.png" data-width="1447" data-height="672" src="https://cdn-images-1.medium.com/max/800/0*5TpXmm0HWeY8kJtp.png"></figure><figure name="a68a" id="a68a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*agTsn3G0E0Ym6ChC.png" data-width="978" data-height="490" src="https://cdn-images-1.medium.com/max/800/0*agTsn3G0E0Ym6ChC.png"></figure><h3 name="621f" id="621f" class="graf graf--h3 graf-after--figure">Testing the function</h3><p name="91cb" id="91cb" class="graf graf--p graf-after--h3">To test the function open it and run:</p><figure name="134f" id="134f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*TTBxoeKG68JZL3hk.png" data-width="1083" data-height="454" src="https://cdn-images-1.medium.com/max/800/0*TTBxoeKG68JZL3hk.png"></figure><figure name="04f8" id="04f8" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*vub82xMTqcUO97ji.png" data-width="1831" data-height="992" src="https://cdn-images-1.medium.com/max/800/0*vub82xMTqcUO97ji.png"></figure><p name="c242" id="c242" class="graf graf--p graf-after--figure">Expand the Logs menu, and check if everything is ok :)</p><figure name="7ded" id="7ded" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*ZIaRcU6mg_3awEce.png" data-width="1831" data-height="992" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*ZIaRcU6mg_3awEce.png"></figure><h3 name="84aa" id="84aa" class="graf graf--h3 graf-after--figure">Creating a startup function.</h3><p name="61aa" id="61aa" class="graf graf--p graf-after--h3">For the startup function, create a new function and in the step to replace the auto-generated code, use the code below:</p><figure name="b72d" id="b72d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/f355bffb2cb7c87c16d28144a28e6523#file-function-startupvms-ps1.js"></script></figure><h3 name="756c" id="756c" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="7d7a" id="7d7a" class="graf graf--p graf-after--h3">Thi’s a simple use with one Virtual Machine, but you can expand this, with more complex environments as dependent resources and uses for other resources.</p><p name="42d8" id="42d8" class="graf graf--p graf-after--p graf--trailing">I hope that it can be helpful to you!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/98adc1351eb8"><time class="dt-published" datetime="2020-08-01T20:30:15.024Z">August 1, 2020</time></a>.</p><p><a href="https://medium.com/@camargo-wes/save-money-with-azure-handling-your-resources-with-azure-functions-98adc1351eb8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

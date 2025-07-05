@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Don’t run out of credits on Azure!</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Don’t run out of credits on Azure!</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you are distracted and forgetful like me, you probably already forgot an Azure Virtual Machine running without need and just figured it…
+</section>
+<section data-field="body" class="e-content">
+<section name="7dfd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0d95" id="0d95" class="graf graf--h3 graf--leading graf--title">Don’t run out of credits on Azure! How to shutdown Azure Virtual Machines automatically with Terraform</h3><p name="ac3d" id="ac3d" class="graf graf--p graf-after--h3">If you are distracted and forgetful like me, you probably already forgot an Azure Virtual Machine running without need and just figured it out when your Azure credits were gone. To avoid this, check a simple tip on how to solve this problem with Terraform.</p><figure name="596a" id="596a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*yQ4GvCZbwp2mH6sc" data-width="5184" data-height="3456" data-unsplash-photo-id="ulTMKa88rEM" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*yQ4GvCZbwp2mH6sc"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@tristangassert?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@tristangassert?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Tristan Gassert</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p name="06b1" id="06b1" class="graf graf--p graf-after--figure">In my<a href="https://medium.com/@camargo-wes/getting-started-with-azure-what-are-azure-virtual-machines-and-how-to-create-it-using-terraform-254c1cb6642b" data-href="https://medium.com/@camargo-wes/getting-started-with-azure-what-are-azure-virtual-machines-and-how-to-create-it-using-terraform-254c1cb6642b" class="markup--anchor markup--p-anchor" target="_blank"> previous post</a>, I have already shown how to create an Azure Virtual Machine using Terraform, now I’m adding this feature, which, for me, is very important and helps me to not spend all my Azure Credits in a forgotten VM 🙃.</p><h3 name="0d69" id="0d69" class="graf graf--h3 graf-after--p">What is Azure VM Auto-Shutdown?</h3><p name="96c2" id="96c2" class="graf graf--p graf-after--h3">Azure VM Auto-Shutdown is like setting a timer for your Azure VM. Auto-shutdown allows you to set a specific time so your Virtual Machine will turn off. This is a handful when you create VMs for tests, or even in development/QA environments, where you don’t need your VMs running at night when your team is not working.</p><h3 name="96cf" id="96cf" class="graf graf--h3 graf-after--p">Terraform resource for auto-shutdown of an Azure VM</h3><p name="2574" id="2574" class="graf graf--p graf-after--h3">To make it work, we will use the Terraform resource <code class="markup--code markup--p-code">azurerm_dev_test_global_vm_shutdown_schedule</code>. This is part of the Azure <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_global_vm_shutdown_schedule" data-href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_global_vm_shutdown_schedule" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Terraform provider</a>. The usage is quite simple, as we can see below:</p><figure name="efc5" id="efc5" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/319c7c0acf168ec66b00ab4305c51701?file=auto-shutdown.tf.js"></script></figure><p name="cf39" id="cf39" class="graf graf--p graf-after--figure">The most important information required are the VM id, daily_recurrence_time, and timezone. Based on this information your VM will be shut down at the time you have defined.</p><h3 name="5ec2" id="5ec2" class="graf graf--h3 graf-after--p">Complete Terraform to create an Azure VM with auto-shutdown</h3><p name="2249" id="2249" class="graf graf--p graf-after--h3">To facilitate the understanding of how to integrate it in a real-life scenario, I have implemented the shutdown process in the following complete Terraform file:</p><figure name="6e69" id="6e69" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/319c7c0acf168ec66b00ab4305c51701?file=vm-autoshutdown.tf.js"></script></figure><h3 name="9dc6" id="9dc6" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="7eb6" id="7eb6" class="graf graf--p graf-after--h3">Below it is the link to my GitHub repository where I am creating a library to have all references related to Terraform. I hope that this post despite being simple might be helpful!<br><a href="https://github.com/wesleycamargo/terraform" data-href="https://github.com/wesleycamargo/terraform" class="markup--anchor markup--p-anchor" rel="noopener ugc nofollow noopener" target="_blank">wesleycamargo/terraform (github.com)</a></p><figure name="1cd8" id="1cd8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*0rM_F_9XoS3sP5GW.png" data-width="700" data-height="40" src="https://cdn-images-1.medium.com/max/800/0*0rM_F_9XoS3sP5GW.png"></figure><h4 name="ce7e" id="ce7e" class="graf graf--h4 graf-after--figure">👋 If you find this helpful, please click the clap 👏 button below a few times to show your support for the author 👇</h4><h4 name="070e" id="070e" class="graf graf--h4 graf-after--h4 graf--trailing">🚀<a href="http://from.faun.to/r/8zxxd" data-href="http://from.faun.to/r/8zxxd" class="markup--anchor markup--h4-anchor" rel="noopener ugc nofollow noopener noopener noopener" target="_blank">Join FAUN Developer Community &amp; Get Similar Stories in your Inbox Each Week</a></h4></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/5ed491bc117d"><time class="dt-published" datetime="2023-12-06T18:01:04.288Z">December 6, 2023</time></a>.</p><p><a href="https://medium.com/@camargo-wes/dont-run-out-of-credits-on-azure-5ed491bc117d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

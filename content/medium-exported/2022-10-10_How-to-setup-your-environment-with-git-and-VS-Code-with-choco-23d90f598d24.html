@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to setup your environment with git and VS Code with choco</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to setup your environment with git and VS Code with choco</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Configuring your git environment is something very important to begin using version control. In this post, I will show you, step by step…
+</section>
+<section data-field="body" class="e-content">
+<section name="333c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f425" id="f425" class="graf graf--h3 graf--leading graf--title">How to setup your environment with git and VS Code with choco</h3><p name="d436" id="d436" class="graf graf--p graf-after--h3">Configuring your git environment is something very important to begin using version control. In this post, I will show you, step by step, how to install and configure git correctly and also how to use Visual Studio Code as a default editor, And at the end of the post, there are the full scripts to help you set up your environment, <strong class="markup--strong markup--p-strong">with a bonus </strong>in it ;).</p><figure name="05c6" id="05c6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fLG0WrzYU-ZuAkqAKqT__A.jpeg" data-width="5000" data-height="3313" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*fLG0WrzYU-ZuAkqAKqT__A.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@yancymin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@yancymin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Yancy Min</a> on <a href="https://unsplash.com/s/photos/git?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/git?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="f746" id="f746" class="graf graf--h3 graf-after--figure">How to install git and Visual Studio Code with PowerShell and Choco</h3><h4 name="ee89" id="ee89" class="graf graf--h4 graf-after--h3">How to install Chocolatey with PowerShell</h4><p name="732e" id="732e" class="graf graf--p graf-after--h4">Before we proceed with git and VSCode, first we need to install the Chocolatey. <a href="https://community.chocolatey.org/" data-href="https://community.chocolatey.org/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Chocolatey</a>, or simply Choco, is a package installer designed for work with PowerShell.</p><p name="c38c" id="c38c" class="graf graf--p graf-after--p">The easiest way to install choco is by running a PowerShell script in your terminal. Below I have prepared a script that calls the official Choco script on its site:</p><figure name="1063" id="1063" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=00-choco-install.ps1.js"></script></figure><h3 name="b36e" id="b36e" class="graf graf--h3 graf-after--figure">How to install git on Windows using choco</h3><p name="c289" id="c289" class="graf graf--p graf-after--h3">After installing Choco, we will be able to install the git package available there. To install, the command is very straightforward as we can see below (might be necessary to run the command with administrative privileges):</p><figure name="0647" id="0647" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=01.1-git-install-choco.ps1.js"></script></figure><p name="e5c6" id="e5c6" class="graf graf--p graf-after--figure">After the installation, check if git was correctly installed with the command <code class="markup--code markup--p-code">git -v</code> :</p><figure name="30a1" id="30a1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n_lAcHewgubjgsb-KeoXLw.png" data-width="482" data-height="187" src="https://cdn-images-1.medium.com/max/800/1*n_lAcHewgubjgsb-KeoXLw.png"></figure><p name="50df" id="50df" class="graf graf--p graf-after--figure">If you receive an error saying that git is not installed, close and reopen your terminal, it will reload the environment variables with the correct git path.</p><h3 name="d2b5" id="d2b5" class="graf graf--h3 graf-after--p">How to install Visual Studio Code with choco and PowerShell</h3><p name="7d21" id="7d21" class="graf graf--p graf-after--h3">As well we saw to install git, the command to install VSCode with choco and PowerShell is also very simple:</p><figure name="f982" id="f982" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=01.2-vscode-install-choco.ps1.js"></script></figure><p name="8e46" id="8e46" class="graf graf--p graf-after--figure">To check the installation, use the command <code class="markup--code markup--p-code">code -v</code> . Again, in case of any problem, close and reopen your terminal.</p><h3 name="28a1" id="28a1" class="graf graf--h3 graf-after--p">How to setup git credentials</h3><h4 name="1fdc" id="1fdc" class="graf graf--h4 graf-after--h3">How to setup git username and email</h4><p name="9b07" id="9b07" class="graf graf--p graf-after--h4">To associate your identity with your commits, it is necessary to define your git user name and email. You can configure it in different scopes, below we can see how to configure it globally:</p><figure name="4877" id="4877" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=02.1-git-config-user.ps1.js"></script></figure><h3 name="b137" id="b137" class="graf graf--h3 graf-after--figure">How to setup Visual Studio Code as the default git editor</h3><p name="7c43" id="7c43" class="graf graf--p graf-after--h3">The default editor for git is nano. Personally, I prefer VS Code, as it has several extensions that can improve productivity. In the script below, we are setting up the VSCode as the default tool for the command diff and merge and also as the default editor:</p><figure name="ecc9" id="ecc9" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=02.2-vscode-config.ps1.js"></script></figure><h3 name="ae4d" id="ae4d" class="graf graf--h3 graf-after--figure">How to install and configure Git and VS Code with PowerShell Script</h3><h4 name="ec3e" id="ec3e" class="graf graf--h4 graf-after--h3">Installation</h4><p name="3ff8" id="3ff8" class="graf graf--p graf-after--h4">To install all necessary tools, you can simply run the script below. Might be necessary to have administrator permissions for that. In the first 6 lines, the script installs choco, and then uses choco to install git and vscode:</p><figure name="7125" id="7125" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=01-complete-install-choco.ps1.js"></script></figure><h4 name="d174" id="d174" class="graf graf--h4 graf-after--figure">Configuration</h4><p name="ac2c" id="ac2c" class="graf graf--p graf-after--h4">After installing the tools, you may need to reload your terminal, as I said above, so to make it easier I created two different scripts 😉. As a <strong class="markup--strong markup--p-strong">Bonus,</strong> I also added an alias to a command <code class="markup--code markup--p-code">git lg</code>, which is an alias for <code class="markup--code markup--p-code">git log</code> , but using prettier options. You can check more about it on this post <a href="https://faun.pub/creating-a-pretty-git-log-61f312f45201" data-href="https://faun.pub/creating-a-pretty-git-log-61f312f45201" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Creating a pretty git log</a>:</p><figure name="8589" id="8589" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/540ab9e5cd753be6409273a82f455d64?file=02-complete-config.ps1.js"></script></figure><h3 name="2159" id="2159" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="0d0a" id="0d0a" class="graf graf--p graf-after--h3">Source control is the basis of any DevOps process, and git is currently the most used tool for it. Using the right configuration together with VS Code will help to start this journey!</p><h3 name="1f92" id="1f92" class="graf graf--h3 graf-after--p">References</h3><p name="3db8" id="3db8" class="graf graf--p graf-after--h3"><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" data-href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Git — Installing Git (git-scm.com)</a></p><p name="bd85" id="bd85" class="graf graf--p graf-after--p"><a href="https://docs.chocolatey.org/en-us/" data-href="https://docs.chocolatey.org/en-us/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Chocolatey Software Docs | Chocolatey — Software Management for Windows</a></p><figure name="a95f" id="a95f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*3ahp0-lW18WfoBhc.png" data-width="700" data-height="40" src="https://cdn-images-1.medium.com/max/800/0*3ahp0-lW18WfoBhc.png"></figure><p name="8972" id="8972" class="graf graf--p graf-after--figure">If you find this helpful, please click the clap 👏 button below a few times to show your support for the author 👇</p><h3 name="d82d" id="d82d" class="graf graf--h3 graf-after--p graf--trailing">🚀<a href="http://from.faun.to/r/8zxxd" data-href="http://from.faun.to/r/8zxxd" class="markup--anchor markup--h3-anchor" rel="noopener ugc nofollow noopener noopener" target="_blank">Join FAUN &amp; get similar stories in your inbox each week</a></h3></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/23d90f598d24"><time class="dt-published" datetime="2022-10-10T13:10:04.918Z">October 10, 2022</time></a>.</p><p><a href="https://medium.com/@camargo-wes/how-to-setup-your-environment-with-git-and-vs-code-with-choco-23d90f598d24" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

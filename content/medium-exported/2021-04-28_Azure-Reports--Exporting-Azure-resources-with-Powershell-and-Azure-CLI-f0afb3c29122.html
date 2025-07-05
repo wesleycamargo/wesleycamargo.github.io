@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Azure Reports: Exporting Azure resources with Powershell and Azure CLI</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Azure Reports: Exporting Azure resources with Powershell and Azure CLI</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+A common scenario when we work with DevOps and cloud is the need to export information about your resources. In this post, I’ll show the…
+</section>
+<section data-field="body" class="e-content">
+<section name="4998" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="16b0" id="16b0" class="graf graf--h3 graf--leading graf--title">Azure Reports: Exporting Azure resources with Powershell and Azure CLI</h3><p name="dd65" id="dd65" class="graf graf--p graf-after--h3">A common scenario when we work with DevOps and cloud is the need to export information about your resources. In this post, I’ll show the simplest way to extract that with the command line.</p><figure name="6c2c" id="6c2c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*ItDdV0YdZCjm5u5T" data-width="1200" data-height="672" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*ItDdV0YdZCjm5u5T"></figure><p name="d444" id="d444" class="graf graf--p graf-after--figure">The idea of this post is to show the mechanism behind the extraction, I’ll run a simple command to recover the resources and choose some columns to export to a CSV file. You can use this as a base of more complex reports to handle properties, cross with other information, etc.</p><p name="ff27" id="ff27" class="graf graf--p graf-after--p">The first step is to connect in our Azure Account using Azure CLI (you can also do it using Azure Powershell), and recover all resources in our subscription:</p><figure name="a5b1" id="a5b1" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4d8dadeef36dd26a5a88192a8384be82.js?file=List-AzureResources-RecoveringResources.ps1.js"></script></figure><p name="8f8b" id="8f8b" class="graf graf--p graf-after--figure">Then we create an Array List to populate, iterate on the resources recovered above, and add the needed fields on the array:</p><figure name="839b" id="839b" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4d8dadeef36dd26a5a88192a8384be82.js?file=List-AzureResources-PopulatingList.ps1.js"></script></figure><p name="2bc2" id="2bc2" class="graf graf--p graf-after--figure">Now we create a file name based on date and time to export the populated array. In my case I’m using the Delimiter “;”, as in my favorite regionalization this is the default pattern for CSV files. If this is not your case, you can remove that parameter.</p><figure name="c20c" id="c20c" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4d8dadeef36dd26a5a88192a8384be82.js?file=List-AzureResources-Exporting.ps1.js"></script></figure><p name="0967" id="0967" class="graf graf--p graf-after--figure">This is the complete script, including the outputPath parameter:</p><figure name="e8a3" id="e8a3" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/4d8dadeef36dd26a5a88192a8384be82.js?file=List-AzureResources.ps1.js"></script></figure><p name="0388" id="0388" class="graf graf--p graf-after--figure">And this is the file exported:</p><figure name="06c9" id="06c9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s2J6kTWmfhRKG0O86hqaHg.png" data-width="1320" data-height="721" src="https://cdn-images-1.medium.com/max/800/1*s2J6kTWmfhRKG0O86hqaHg.png"></figure><p name="4e57" id="4e57" class="graf graf--p graf-after--figure">This is the link for my GitHub repository, and the intention is to fill it with more complex reports :)</p><p name="1998" id="1998" class="graf graf--p graf-after--p"><a href="https://github.com/wesleycamargo/AzureReports" data-href="https://github.com/wesleycamargo/AzureReports" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://github.com/wesleycamargo/AzureReports</a></p><p name="be14" id="be14" class="graf graf--p graf-after--p graf--trailing">See you in the next post!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/f0afb3c29122"><time class="dt-published" datetime="2021-04-28T15:31:36.873Z">April 28, 2021</time></a>.</p><p><a href="https://medium.com/@camargo-wes/azure-reports-exporting-azure-resources-with-powershell-and-azure-cli-f0afb3c29122" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

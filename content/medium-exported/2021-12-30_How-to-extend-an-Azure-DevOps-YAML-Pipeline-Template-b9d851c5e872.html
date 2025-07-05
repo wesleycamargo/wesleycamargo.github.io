@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to extend an Azure DevOps YAML Pipeline Template</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to extend an Azure DevOps YAML Pipeline Template</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+If you need to control what is allowed during your deployment, extending the YAML Templates is the easiest way to know what is being done…
+</section>
+<section data-field="body" class="e-content">
+<section name="9ab5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="61b2" id="61b2" class="graf graf--h3 graf--leading graf--title">How to extend an Azure DevOps YAML Pipeline Template</h3><p name="e1a4" id="e1a4" class="graf graf--p graf-after--h3">If you need to control what is allowed during your deployment, extending the YAML Templates is the easiest way to know what is being done on your deployments.</p><figure name="433c" id="433c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8JQMH109KuJHKrUubmjxqA.jpeg" data-width="5188" data-height="3459" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*8JQMH109KuJHKrUubmjxqA.jpeg"><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@zonduurzaam?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/@zonduurzaam?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Zonduurzaam Deventer</a> on <a href="https://unsplash.com/s/photos/power-strip?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" data-href="https://unsplash.com/s/photos/power-strip?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="markup--anchor markup--figure-anchor" rel="noopener" target="_blank">Unsplash</a></figcaption></figure><h3 name="62fa" id="62fa" class="graf graf--h3 graf-after--figure">Azure DevOps YAML Templates</h3><p name="dadf" id="dadf" class="graf graf--p graf-after--h3">YAML Templates are the smartest way to create your pipelines. It allows you to break down the pipelines into small pieces reusing your logic, which leads to some best practices as <em class="markup--em markup--p-em">Don&#39;t Repeat Yourself </em>and<em class="markup--em markup--p-em"> Dependency Inversion.</em></p><p name="81ed" id="81ed" class="graf graf--p graf-after--p">It’s also possible to use the <em class="markup--em markup--p-em">Declarative </em>instead of the <em class="markup--em markup--p-em">Imperative</em> approach, therefore who will consume your pipelines does not need to know the details of how to deploy an application, but just say what is necessary to deploy.</p><p name="b900" id="b900" class="graf graf--p graf-after--p">With these principles being correctly applied, it is possible to build a reliable and robust way to deploy new applications, but who will consume it doesn’t need to be a DevOps expert.</p><h3 name="f3dd" id="f3dd" class="graf graf--h3 graf-after--p">Creating an Azure DevOps YAML Templates</h3><h4 name="bf04" id="bf04" class="graf graf--h4 graf-after--h3">Parameters on Azure DevOps YAML Templates</h4><p name="ae28" id="ae28" class="graf graf--p graf-after--h4">On top of the template, the first section is <code class="markup--code markup--p-code">parameters</code> . As our goal is to make the templates reusable, makes complete sense to have a way to change values according to which application is consuming the template. To keep it simple in this example, it was parametrized the application name.</p><pre name="440f" id="440f" class="graf graf--pre graf-after--p">parameters:<br>  - name: applicationName<br>    type: string</pre><h4 name="3f7d" id="3f7d" class="graf graf--h4 graf-after--pre">Stages on Azure DevOps YAML Templates</h4><p name="59a4" id="59a4" class="graf graf--p graf-after--h4">To have an extendible template, it must be created on the level of the stages. This example has two of them, one for build and one more for development environment. <br>Below you can check the full template script:</p><figure name="546e" id="546e" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/b5f5b29229129bc6401ff91060daf739?file=template.yml.js"></script></figure><h3 name="65f2" id="65f2" class="graf graf--h3 graf-after--figure">Extending Azure DevOps YAML Templates</h3><h4 name="e9c9" id="e9c9" class="graf graf--h4 graf-after--h3">Configuring triggers on Azure DevOps YAML Templates</h4><p name="9e88" id="9e88" class="graf graf--p graf-after--h4">On top of the consumer file, in our case <code class="markup--code markup--p-code">azure-pipelines.yml</code> , we need to declare the triggers of the pipeline. It is mandatory to include at least one value for branch(it can be * if needed), or <code class="markup--code markup--p-code">none</code> . You can also set the path where your files are, and your pipeline will run only when those files change.</p><pre name="7b50" id="7b50" class="graf graf--pre graf-after--p">trigger:<br>  branches:<br>    include:<br>      - main<br>      - develop<br>  paths:<br>    include:<br>      - src/*</pre><h4 name="8442" id="8442" class="graf graf--h4 graf-after--pre">Referencing Azure DevOps YAML Templates</h4><p name="9d9e" id="9d9e" class="graf graf--p graf-after--h4">To extend a template, you need to provide the relative path for your template file. In this example, there is a <code class="markup--code markup--p-code">templates</code> directory with the file <code class="markup--code markup--p-code">template.yml</code> so on the consumer file, it’s necessary to provide the template path in the format <code class="markup--code markup--p-code">./templates/template.yml</code> <code class="markup--code markup--p-code">.</code></p><figure name="c658" id="c658" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PKHTHZN9K5hkDjgXRZ7mzQ.png" data-width="348" data-height="119" src="https://cdn-images-1.medium.com/max/800/1*PKHTHZN9K5hkDjgXRZ7mzQ.png"><figcaption class="imageCaption">Image prepared by author</figcaption></figure><p name="982a" id="982a" class="graf graf--p graf-after--figure">We also need to provide the parameter defined in our template. To this, you just need to add the parameters section right below the template, the name of the parameter, and of course, the value for it. Below there is the complete “consumer” file.</p><figure name="4dad" id="4dad" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/b5f5b29229129bc6401ff91060daf739?file=azure-pipelines.yml.js"></script></figure><h3 name="f5c6" id="f5c6" class="graf graf--h3 graf-after--figure">Conclusion</h3><p name="63ca" id="63ca" class="graf graf--p graf-after--h3">In this post, I introduced the basic concepts of how to extend Azure DevOps YAML Pipelines. This is easy to implement but can yield good fruits in future implementations.</p><p name="faa6" id="faa6" class="graf graf--p graf-after--p graf--trailing">In future articles, I will deep dive into this subject and show the full potential of this approach :).</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@camargo-wes" class="p-author h-card">Wesley Camargo</a> on <a href="https://medium.com/p/b9d851c5e872"><time class="dt-published" datetime="2021-12-30T16:28:36.566Z">December 30, 2021</time></a>.</p><p><a href="https://medium.com/@camargo-wes/how-to-extend-an-azure-devops-yaml-pipeline-template-b9d851c5e872" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>
