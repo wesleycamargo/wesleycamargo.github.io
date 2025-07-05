@@ -29,3 +29,8 @@ yarn-error.log*
 
 # Log files
 *.log
+
+# Verification tools (temporary)
+/tmp/verify_medium_posts.py
+/tmp/medium_posts_verification_report.json
+/tmp/create_report.py
