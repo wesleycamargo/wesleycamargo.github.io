@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Helm Charts Sheet Cheat</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Helm Charts Sheet Cheat</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Install Helm on Windows:
+choco install kubernetes-helm
+</section>
+<section data-field="body" class="e-content">
+<section name="d5ed" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7c48" id="7c48" class="graf graf--h3 graf--leading graf--title">Helm Charts Sheet Cheat</h3><p name="ff75" id="ff75" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="7f0a" id="7f0a" class="graf graf--p graf-after--p">Install Helm on Windows:<br><code class="markup--code markup--p-code">choco install kubernetes-helm</code> </p><p name="20d8" id="20d8" class="graf graf--p graf-after--p">Helm Repositories</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="sql" name="7dcb" id="7dcb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">helm repo <span class="hljs-keyword">add</span> <span class="hljs-operator">&lt;</span>repo<span class="hljs-operator">-</span>name<span class="hljs-operator">&gt;</span> <span class="hljs-operator">&lt;</span>url<span class="hljs-operator">&gt;</span>   # <span class="hljs-keyword">Add</span> a repository <span class="hljs-keyword">from</span> the internet:<br />helm repo list</span></pre><p name="9be7" id="9be7" class="graf graf--p graf-after--pre">Install Kubectl</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="typescript" name="e7c3" id="e7c3" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">choco install kubernetes-cli<br />choco install kubelogin</span></pre><p name="2d69" id="2d69" class="graf graf--p graf-after--pre">AKS</p><p name="7a01" id="7a01" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">-A</code> means all namespaces</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="sql" name="10ce" id="10ce" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"># <span class="hljs-keyword">Get</span> everything <span class="hljs-keyword">in</span> <span class="hljs-keyword">all</span> Namespaces (<span class="hljs-operator">-</span>A)<br />kubectl <span class="hljs-keyword">get</span> <span class="hljs-keyword">all</span> <span class="hljs-operator">-</span>A<br /><br /># <span class="hljs-keyword">Get</span> namespaces<br /> kubectl <span class="hljs-keyword">get</span> namespace<br /> kubectl <span class="hljs-keyword">get</span> ns<br /><br /># <span class="hljs-keyword">Get</span> deployments<br />kubectl <span class="hljs-keyword">get</span> deployment<br /><br /># <span class="hljs-keyword">Delete</span> deployment<br />kubectl <span class="hljs-keyword">delete</span> deployment <span class="hljs-operator">&lt;</span>deployment name<span class="hljs-operator">&gt;</span> <span class="hljs-operator">-</span>n <span class="hljs-operator">&lt;</span>namespace<span class="hljs-operator">&gt;</span><br /><br /># <span class="hljs-keyword">Create</span> certificate secret<br />kubectl <span class="hljs-keyword">create</span> secret tls <span class="hljs-operator">&lt;</span>secret name<span class="hljs-operator">&gt;</span> <span class="hljs-comment">--cert=&lt;path to crt certificate&gt; --key=&lt;path to certificate key&gt; -n &lt;namespace&gt;</span></span></pre><p name="25f3" id="25f3" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/871c50f6801d">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

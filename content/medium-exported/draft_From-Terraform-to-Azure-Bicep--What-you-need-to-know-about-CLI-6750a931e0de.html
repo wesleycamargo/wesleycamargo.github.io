@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>From Terraform to Azure Bicep: What you need to know about CLI</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">From Terraform to Azure Bicep: What you need to know about CLI</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Hey there! Welcome back to our blog series “From Terraform to Azure Bicep.” In my  previous post, we discussed the differences in the main…
+</section>
+<section data-field="body" class="e-content">
+<section name="22dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6e70" id="6e70" class="graf graf--h3 graf--leading graf--title">From Terraform to Azure Bicep: What you need to know about CLI</h3><p name="bd7e" id="bd7e" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="99e2" id="99e2" class="graf graf--p graf-after--p">Hey there! Welcome back to our blog series “From Terraform to Azure Bicep.” In my  previous post, we discussed the differences in the main components of the file structure. Now, it’s time to compare Terraform and Azure/Bicep CLI tools for infrastructure management. In this blog post, we will dive deep into the similarities and differences between them, and help you understand how to use them to manage your infrastructure. So let’s get started!</p><p name="e3e7" id="e3e7" class="graf graf--p graf-after--p">Both tools support a wide range of operating systems, including Windows, macOS, and Linux. The installation and configuration are relatively simple and can be done using tools such as Chocolatey and apt-get, as we will see below. let’s take a closer look at each tool:</p><h4 name="43ab" id="43ab" class="graf graf--h4 graf-after--p">What is Bicep CLI?</h4><h4 name="89a9" id="89a9" class="graf graf--h4 graf-after--h4">How does Bicep CLI works?</h4><p name="77eb" id="77eb" class="graf graf--p graf-after--h4">Bicep CLI is part of Azure CLI, which is a tool for managing Azure resources only. One of the great things about Azure CLI is its flexibility and ease of use. It allows the use of declarative and imperative approaches when interacting with resources, although, for declarative, it is necessary to combine its use with Azure Bicep. Azure CLI and Bicep are easy to install using tools like Chocolatey and apt-get.</p><h4 name="9a2d" id="9a2d" class="graf graf--h4 graf-after--p">What is Terraform CLI?</h4><p name="455d" id="455d" class="graf graf--p graf-after--h4">Terraform CLI allows the declarative approach through terraform files, not being possible to interact with cloud resources directly. While it may have fewer capabilities than Azure CLI, Terraform is extremely flexible and supports a wide range of cloud providers, including Azure, AWS, GCP, and even VMWare. Like Azure CLI, Terraform CLI is easy to install using tools like Chocolatey and apt-get. </p><h3 name="49b1" id="49b1" class="graf graf--h3 graf-after--p">How to install and configure Azure Bicep 💪and Azure CLI</h3><h4 name="9840" id="9840" class="graf graf--h4 graf-after--h3">How to install Azure CLI locally on Windows using Chocolatey</h4><p name="4619" id="4619" class="graf graf--p graf-after--h4">The installation script below does the following:</p><ol class="postList"><li name="4b3a" id="4b3a" class="graf graf--li graf-after--p">Checks if Chocolatey is installed, and install it if it’s not already installed.</li><li name="f75d" id="f75d" class="graf graf--li graf-after--li">Installs the Azure CLI package using Chocolatey.</li><li name="d493" id="d493" class="graf graf--li graf-after--li">Verifies the installation by running <code class="markup--code markup--li-code">az --version</code>.</li></ol><figure name="2835" id="2835" class="graf graf--figure graf--iframe graf-after--li"><script src="https://gist.github.com/wesleycamargo/5d2fc2ed0e020fcf6109b0886e9d837c?file=azurecli-chocolatey-install.ps1.js"></script></figure><p name="cccf" id="cccf" class="graf graf--p graf-after--figure">To use this script, simply copy and paste it into a file with a <code class="markup--code markup--p-code">.ps1</code> extension (e.g. <code class="markup--code markup--p-code">install-azure-cli.ps1</code>), open a PowerShell prompt as administrator, navigate to the directory where the script is saved, and run it using the command <code class="markup--code markup--p-code">.\install-azure-cli.ps1</code>. Note that you may need to modify your execution policy to run PowerShell scripts - you can do this by running <code class="markup--code markup--p-code">Set-ExecutionPolicy RemoteSigned</code> or <code class="markup--code markup--p-code">Set-ExecutionPolicy Unrestricted</code> from an elevated PowerShell prompt.</p><h4 name="dde7" id="dde7" class="graf graf--h4 graf-after--p">How to install Azure CLI on Linux using apt-get</h4><p name="bcac" id="bcac" class="graf graf--p graf-after--h4">The installation script using apt-get has a few more steps than using choco, and does the following:</p><ol class="postList"><li name="eb03" id="eb03" class="graf graf--li graf-after--p">Updates the package list</li><li name="79cc" id="79cc" class="graf graf--li graf-after--li">Installs the necessary dependencies</li><li name="7e9e" id="7e9e" class="graf graf--li graf-after--li">Downloads and adds the Microsoft signing key to the trusted keyring</li><li name="7ff2" id="7ff2" class="graf graf--li graf-after--li">Adds the Azure CLI software repository to the sources list</li><li name="8d03" id="8d03" class="graf graf--li graf-after--li">Updates the package list again, and installs the Azure CLI</li><li name="1963" id="1963" class="graf graf--li graf-after--li">Verifies the installation by running <code class="markup--code markup--li-code">az --version</code></li></ol><figure name="2cf7" id="2cf7" class="graf graf--figure graf--iframe graf-after--li"><script src="https://gist.github.com/wesleycamargo/5d2fc2ed0e020fcf6109b0886e9d837c?file=azurecli-aptget-install.sh.js"></script></figure><p name="d23e" id="d23e" class="graf graf--p graf-after--figure">To use this script, simply copy and paste it into a file, save the file with a <code class="markup--code markup--p-code">.sh</code> extension (e.g. <code class="markup--code markup--p-code">install-azure-cli.sh</code>), make it executable using <code class="markup--code markup--p-code">chmod +x install-azure-cli.sh</code>, and then run it with <code class="markup--code markup--p-code">./install-azure-cli.sh</code>.</p><h3 name="c0fa" id="c0fa" class="graf graf--h3 graf-after--p">How to install and configure Terraform CLI</h3><h4 name="97ea" id="97ea" class="graf graf--h4 graf-after--h3">How to install Terraform CLI on Windows using Chocolatey</h4><p name="04f9" id="04f9" class="graf graf--p graf-after--h4">Installing Terraform CLI with Chocolatey is simple and can be done with the script below:</p><figure name="8bed" id="8bed" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/5d2fc2ed0e020fcf6109b0886e9d837c?file=terraformcli-chocolatey-install.ps1.js"></script></figure><p name="8007" id="8007" class="graf graf--p graf-after--figure">To run the script check the  Azure CLI session above😉.</p><h4 name="4c59" id="4c59" class="graf graf--h4 graf-after--p">How to install Terraform CLI on Linux using apt-get</h4><p name="8c40" id="8c40" class="graf graf--p graf-after--h4">The installation of Terraform CLI on Linux is simple as the Azure CLI. Below we can see the script for that. The instructions to run this script are also the same a for Azure CLI.</p><figure name="1352" id="1352" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/wesleycamargo/5d2fc2ed0e020fcf6109b0886e9d837c?file=terraformcli-aptget-install.sh.js"></script></figure><p name="2828" id="2828" class="graf graf--p graf--empty graf-after--figure"><br></p><h3 name="ff43" id="ff43" class="graf graf--h3 graf-after--p">Overview of Azure CLI</h3><ul class="postList"><li name="e392" id="e392" class="graf graf--li graf-after--h3">Explanation of Azure CLI and its capabilities</li><li name="444e" id="444e" class="graf graf--li graf-after--li">Benefits and drawbacks of using Azure CLI</li><li name="5c33" id="5c33" class="graf graf--li graf-after--li">Examples of Azure CLI commands and how they are used</li></ul><h3 name="26a5" id="26a5" class="graf graf--h3 graf-after--li">Overview of Terraform CLI</h3><ul class="postList"><li name="5c7c" id="5c7c" class="graf graf--li graf-after--h3">Explanation of Terraform CLI and its capabilities</li><li name="d23b" id="d23b" class="graf graf--li graf-after--li">Benefits and drawbacks of using Terraform CLI</li><li name="2218" id="2218" class="graf graf--li graf-after--li">Examples of Terraform CLI commands and how they are used</li></ul><p name="e7cb" id="e7cb" class="graf graf--p graf--empty graf-after--li"><br></p><h3 name="3d02" id="3d02" class="graf graf--h3 graf-after--p">Comparison of Terraform CLI and Azure CLI</h3><ul class="postList"><li name="45d9" id="45d9" class="graf graf--li graf-after--h3">Comparison of syntax and language used by both tools</li><li name="dcfb" id="dcfb" class="graf graf--li graf-after--li">Comparison of how they handle state management and version control</li><li name="17f3" id="17f3" class="graf graf--li graf-after--li">Comparison of available resources and integrations</li><li name="5d2b" id="5d2b" class="graf graf--li graf-after--li">Explanation of which tool may be more suitable for certain scenarios</li></ul><h3 name="6a25" id="6a25" class="graf graf--h3 graf-after--li">Conclusion</h3><ul class="postList"><li name="74ac" id="74ac" class="graf graf--li graf-after--h3">Recap of main points and differences between Terraform CLI and Azure CLI</li><li name="ed9a" id="ed9a" class="graf graf--li graf-after--li">Final thoughts on which tool may be best for different use cases.</li></ul><p name="959d" id="959d" class="graf graf--p graf--empty graf-after--li graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/6750a931e0de">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

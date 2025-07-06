@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Configuring AKS</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Configuring AKS</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Terminology
+</section>
+<section data-field="body" class="e-content">
+<section name="95bb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="338f" id="338f" class="graf graf--h3 graf--leading graf--title">Configuring AKS</h3><p name="151c" id="151c" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="12ce" id="12ce" class="graf graf--h3 graf-after--p">Terminology</h3><ol class="postList"><li name="56cf" id="56cf" class="graf graf--li graf-after--h3">Container - is a package with everything necessary to run an application. the smaller unit in the AKS environment,</li><li name="f933" id="f933" class="graf graf--li graf-after--li">Pod — is an instance of an application. It can have one or more containers</li><li name="652c" id="652c" class="graf graf--li graf-after--li">Deployment — it has one or more identical pods</li><li name="128d" id="128d" class="graf graf--li graf-after--li">Nodes— VMs running containerized applications</li><li name="0177" id="0177" class="graf graf--li graf-after--li">Pool — Groups of nodes with the same configuration</li></ol><h3 name="f587" id="f587" class="graf graf--h3 graf-after--li">AKS Cluster architecture</h3><h4 name="7df2" id="7df2" class="graf graf--h4 graf-after--h3">AKS Clusters</h4><p name="a77e" id="a77e" class="graf graf--p graf-after--h4">Nodes are VMs running containerized applications, and are divided into two types in AKS:</p><ul class="postList"><li name="13a6" id="13a6" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Azure-managed nodes </strong>— This is a managed node abstracted by Azure, providing the core Kubernetes services and orchestration of applications. </li><li name="a406" id="a406" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Customer-managed nodes</strong> — These clusters are where the customer applications run, being administered by him.</li></ul><h4 name="0020" id="0020" class="graf graf--h4 graf-after--li">AKS Nodes architecture</h4><p name="8947" id="8947" class="graf graf--p graf-after--h4">Nodes are virtual machines that run applications. </p><p name="ba9a" id="ba9a" class="graf graf--p graf-after--p"><a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/3-kubernetes-clusters" data-href="https://learn.microsoft.com/en-us/training/modules/configure-azure-kubernetes-service/3-kubernetes-clusters" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Explore the AKS cluster and node architecture — Training | Microsoft Learn</a></p><h3 name="e3bf" id="e3bf" class="graf graf--h3 graf-after--p">AKS Networking</h3><p name="94ed" id="94ed" class="graf graf--p graf-after--h3 graf--trailing">To enable communication between applications, Kubernetes abstracts a vNet layer. The nodes are connected to a vNet a</p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/3683d72ea4ae">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How to use Azure DevOps YAML Pipelines Templates</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">How to use Azure DevOps YAML Pipelines Templates</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+The easiest way to take over control of your deployments
+</section>
+<section data-field="body" class="e-content">
+<section name="2b5a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e2fe" id="e2fe" class="graf graf--h3 graf--leading graf--title">How to use Azure DevOps YAML Pipelines Templates</h3><p name="76c7" id="76c7" class="graf graf--p graf-after--h3">The easiest way to take over control of your deployments</p><p name="28f6" id="28f6" class="graf graf--p graf-after--p">You can be a Developer a DevOps Engineer or an Operations guy, but if you need to maintain several applications in production certainly you faced a lot of problems. I have good news for you! There is an easy way to take over the control of your CI/CD process, and templates are the answer for that…</p><h3 name="adb8" id="adb8" class="graf graf--h3 graf-after--p">Pipeline as Code</h3><h4 name="8a95" id="8a95" class="graf graf--h4 graf-after--h3">What is “as Code” mean?</h4><p name="a8b5" id="a8b5" class="graf graf--p graf-after--h4">In the last years the concept of “As Code” is being adopted for all sorts of components. The most common scenario to use it is with Infrastructure as Code aka IaC, but if you are tuned in to the best practices related to the technology world maybe you also heard about Database as Code, Configuration as Code, and why not Pipeline as Code as well?</p><p name="7bf6" id="7bf6" class="graf graf--p graf-after--p">As code means that you keep all configurations under a Source Control, and you can apply the same practices as in a traditional application, like versions, tags, and tests for example.</p><h4 name="fcfe" id="fcfe" class="graf graf--h4 graf-after--p">Prerequisites for Pipeline as Code</h4><p name="8d19" id="8d19" class="graf graf--p graf-after--h4"><strong class="markup--strong markup--p-strong">Version Control System</strong> - To start you need to choose a Version Control System, most probably a git-based one, like GitHub, Azure Repos, or GitLab.</p><p name="e1fc" id="e1fc" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Continuous Deployment Tool</strong> - You will also need to choose a CI/CD tool with support to Pipeline as Code. The most known tools for that are GitHub Actions and Azure DevOps YAML Pipelines. In this post, I will use Azure DevOps YAML Pipeline to show how to use the benefits of the Pipeline as Code.</p><h3 name="9e2e" id="9e2e" class="graf graf--h3 graf-after--p">Azure DevOps YAML Pipelines Templates</h3><p name="3015" id="3015" class="graf graf--p graf-after--h3">YAML Templates are a smart way to create your pipelines. The most advantageous characteristics are:</p><ul class="postList"><li name="5b39" id="5b39" class="graf graf--li graf-after--p">It allows to break down the pipelines into small pieces.</li><li name="b285" id="b285" class="graf graf--li graf-after--li">You can call in your main pipelines, but it also supports nested insertions.</li><li name="4e20" id="4e20" class="graf graf--li graf-after--li">Control of what is allowed in the pipeline.</li></ul><p name="bc5c" id="bc5c" class="graf graf--p graf-after--li">best practices in our deployment pipelines. </p><p name="f570" id="f570" class="graf graf--p graf--empty graf-after--p"><br></p><h4 name="c40d" id="c40d" class="graf graf--h4 graf-after--p">Single Responsibility Principle</h4><p name="9bc4" id="9bc4" class="graf graf--p graf-after--h4">As you can build small segments and insert them into a main pipeline, it allows the reusability of logic. </p><h4 name="44d4" id="44d4" class="graf graf--h4 graf-after--p">Dependency Inversion</h4><p name="cefd" id="cefd" class="graf graf--p graf--empty graf-after--h4"><br></p><h4 name="7d7f" id="7d7f" class="graf graf--h4 graf-after--p">Declarative instead of imperative scripts</h4><h3 name="89c7" id="89c7" class="graf graf--h3 graf-after--h4">Inject Templates</h3><h3 name="dae2" id="dae2" class="graf graf--h3 graf-after--h3">Extend Templates</h3><p name="95fb" id="95fb" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="cf27" id="cf27" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bf7329030e78">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 5, 2025.</p></footer></article></body></html>
