@@ -3,7 +3,7 @@ title: "The Architect's Radar — October 9, 2026"
 date: 2026-10-09T22:30:00+02:00
 draft: false
 slug: "the-architects-radar-2026-10-09"
-description: "Three essential stories, one architecture deep dive, and 17 optional source-linked updates."
+description: "The week’s most important architecture news, one deep dive, practical use cases, and compact additional headlines."
 categories:
   - "The Architect's Radar"
   - "Cloud Architecture"
@@ -16,13 +16,13 @@ tags:
   - cybersecurity
 ---
 
-> **60-second radar:** Coding agents are getting stronger execution controls, AI is extending across enterprise tools, and AI-driven cyber defense is accelerating.
+> **60-second radar:** Coding agents are gaining stronger execution controls, enterprise AI is expanding into everyday work, and agent-assisted cloud migrations and cyber defense are advancing.
 
-**Three essentials. One architecture lesson. One optional experiment.**
+**The essential updates. One architecture lesson. One optional experiment.**
 
 _Special edition covering October 2–9, 2026._
 
-## 🌐 Three stories to know
+## 🌐 Featured news
 
 ### 🔒 GitHub Copilot local sandboxing reaches general availability
 
@@ -48,6 +48,14 @@ Its Cyber Mission introduces defensive support for operational technology and an
 
 [Primary source ↗](https://www.anthropic.com/news/anthropic-cyber-mission)
 
+### ☁️ Google Cloud Modernize brings agents to enterprise migration
+
+Google introduced a consolidated modernization offering and previewed tooling to help migrate Kubernetes workloads from EKS to GKE.
+
+**Use case:** Assess an EKS application’s dependencies and migration complexity before deciding whether moving it to GKE makes architectural and financial sense.
+
+[Primary source ↗](https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai)
+
 ## 🔍 One idea worth understanding: Secure Agent Execution
 
 **The architectural shift:** Treat an AI coding agent like untrusted executable workload, not just a text assistant.
@@ -71,7 +79,6 @@ Its Cyber Mission introduces defensive support for operational technology and an
 
 <h4>Additional top stories</h4>
 <ul>
-<li><a href="https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai"><strong>Google Cloud Modernize brings agents to enterprise migration</strong></a><div><small><strong>Use case:</strong> Assess an EKS workload before planning a migration to GKE.</small></div></li>
 <li><a href="https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/"><strong>AWS Continuum reports autonomous vulnerability repair results</strong></a><div><small><strong>Use case:</strong> Test an AI-suggested vulnerability fix in CI before merging it.</small></div></li>
 <li><a href="https://www.anthropic.com/claude-haiku-5-5"><strong>Claude Haiku 5.5 targets high-volume agent tasks</strong></a><div><small><strong>Use case:</strong> Route repetitive classification tasks to a faster, lower-cost model.</small></div></li>
 <li><a href="https://openai.com/products/release-notes/"><strong>GPT-6 Intelligent UI rolls out in ChatGPT</strong></a><div><small><strong>Use case:</strong> Show an architecture comparison as an interactive guide.</small></div></li>
