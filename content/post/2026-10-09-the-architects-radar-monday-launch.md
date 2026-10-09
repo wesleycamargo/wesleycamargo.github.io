@@ -74,9 +74,6 @@ Google introduced a consolidated modernization offering and previewed tooling to
 
 ## 🗂️ More news
 
-<details>
-<summary>Show headlines</summary>
-
 <h4>Additional top stories</h4>
 <ul>
 <li><a href="https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/"><strong>AWS Continuum reports autonomous vulnerability repair results</strong></a><div><small><strong>Use case:</strong> Test an AI-suggested vulnerability fix in CI before merging it.</small></div></li>
@@ -108,8 +105,6 @@ Google introduced a consolidated modernization offering and previewed tooling to
 <li><a href="https://www.anthropic.com/news/claude-frontier-academy"><strong>Anthropic funds practical training for enterprise AI engineers (Oct 2)</strong></a><div><small><strong>Use case:</strong> Introduce hands-on AI integration exercises for platform engineers.</small></div></li>
 <li><a href="https://cloud.google.com/blog/topics/financial-services/ultra-low-latency-solution-with-u4-enables-high-velocity-trading"><strong>Google's U4 compute targets ultra-low-latency cloud workloads (Oct 7)</strong></a><div><small><strong>Use case:</strong> Test specialized infrastructure for an ultra-low-latency trading workload.</small></div></li>
 </ul>
-
-</details>
 
 ## 🔬 Suggested Experiment (2 minutes)
 
