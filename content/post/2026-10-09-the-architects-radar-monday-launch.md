@@ -196,7 +196,7 @@ Google made its U4 machine family generally available for specialized low-latenc
 
 [GitHub's full announcement ↗](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/)
 
-## 🔬 What to Test on Wednesday
+## 🔬 Suggested Experiment
 
 Run one 10-minute AI coding-agent permission audit in a disposable test project. Do not use company secrets, real credentials, or production resources.
 
@@ -206,7 +206,7 @@ Run one 10-minute AI coding-agent permission audit in a disposable test project.
 
 - Record one permission you would restrict before using it on a work project.
 
-Track: 3 checks and 1 proposed improvement. Set a phone reminder for Wednesday, October 14, or bookmark this post.
+**What to observe:** Check three access boundaries and identify one permission to tighten. Try it whenever you have ten minutes.
 
 **Discussion prompt:** Which boundary worries you most: files, credentials, or network access? Share this edition with another architect and compare your answers.
 
