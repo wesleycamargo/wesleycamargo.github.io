@@ -32,7 +32,7 @@ _Ranked by architectural relevance. Explore only what matters to you._
 
 GitHub now isolates local Copilot agent tools with filesystem, network, and credential restrictions enforced by the host OS.
 
-**Why it matters:** **Enterprise developer-agent permissions can be enforced below the model layer, including organization-controlled policies.**
+**Enterprise developer-agent permissions can be enforced below the model layer, including organization-controlled policies.**
 
 [Primary source ↗](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/)
 
@@ -42,7 +42,7 @@ GitHub now isolates local Copilot agent tools with filesystem, network, and cred
 
 At Gemini at Work, Google unveiled an agent integrated across Workspace and enterprise data, with identity, authorization, sandboxing, and gateway controls.
 
-**Why it matters:** **Architects must evaluate cross-application identity, delegated actions, data boundaries, and portability—not only assistant features.**
+**Architects must evaluate cross-application identity, delegated actions, data boundaries, and portability—not only assistant features.**
 
 [Primary source ↗](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
 
@@ -52,7 +52,7 @@ At Gemini at Work, Google unveiled an agent integrated across Workspace and ente
 
 Its Cyber Mission introduces defensive support for operational technology and an OSS Scanner for open-source maintainers.
 
-**Why it matters:** **AI-assisted vulnerability discovery and patching could increase the pace of remediation, while demanding stronger verification and human oversight.**
+**AI-assisted vulnerability discovery and patching could increase the pace of remediation, while demanding stronger verification and human oversight.**
 
 [Primary source ↗](https://www.anthropic.com/news/anthropic-cyber-mission)
 
@@ -62,7 +62,7 @@ Its Cyber Mission introduces defensive support for operational technology and an
 
 Google consolidated modernization tools and previewed an EKS-to-GKE Migration Agent alongside code and dependency analysis.
 
-**Why it matters:** **Migration planning may accelerate, but application dependencies and cross-cloud portability still require architectural validation.**
+**Migration planning may accelerate, but application dependencies and cross-cloud portability still require architectural validation.**
 
 [Primary source ↗](https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai)
 
@@ -72,7 +72,7 @@ Google consolidated modernization tools and previewed an EKS-to-GKE Migration Ag
 
 AWS published CyberGym-E2E results for an agent that finds, reproduces, and patches real code vulnerabilities.
 
-**Why it matters:** **Security workflows are moving beyond detection toward tested remediation; benchmark results still need production validation.**
+**Security workflows are moving beyond detection toward tested remediation; benchmark results still need production validation.**
 
 [Primary source ↗](https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/)
 
@@ -82,7 +82,7 @@ AWS published CyberGym-E2E results for an agent that finds, reproduces, and patc
 
 Anthropic introduced a faster lower-cost small model, with GitHub also adding it to Copilot.
 
-**Why it matters:** **Model-routing economics now matter: use smaller models for repeatable tasks and reserve heavier reasoning for harder decisions.**
+**Model-routing economics now matter: use smaller models for repeatable tasks and reserve heavier reasoning for harder decisions.**
 
 [Primary source ↗](https://www.anthropic.com/claude-haiku-5-5)
 
@@ -92,7 +92,7 @@ Anthropic introduced a faster lower-cost small model, with GitHub also adding it
 
 OpenAI introduced interactive outputs that combine prose, visual elements, and usable tools in one response.
 
-**Why it matters:** **Architectural communication and internal tools can increasingly combine explanation and guided interaction instead of static documents.**
+**Architectural communication and internal tools can increasingly combine explanation and guided interaction instead of static documents.**
 
 [Primary source ↗](https://openai.com/products/release-notes/)
 
