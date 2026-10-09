@@ -3,7 +3,7 @@ title: "The Architect's Radar — October 9, 2026"
 date: 2026-10-09T22:30:00+02:00
 draft: false
 slug: "the-architects-radar-2026-10-09"
-description: "The week’s most important architecture news, one deep dive, practical use cases, and compact additional headlines."
+description: "Cloud, AI agent, platform engineering, and cybersecurity updates from October 2–9, 2026."
 categories:
   - "The Architect's Radar"
   - "Cloud Architecture"
@@ -17,8 +17,6 @@ tags:
 ---
 
 > **60-second radar:** Coding agents are gaining stronger execution controls, enterprise AI is expanding into everyday work, and agent-assisted cloud migrations and cyber defense are advancing.
-
-**The essential updates. One architecture lesson. One optional experiment.**
 
 _Special edition covering October 2–9, 2026._
 
@@ -113,9 +111,5 @@ Google introduced a consolidated modernization offering and previewed tooling to
 1. Open the agent's permissions or sandbox settings.
 2. Check whether it can access files outside your project, local credentials, or the network.
 3. Choose **one permission to restrict** before using the agent at work.
-
-**Done:** You've identified one concrete improvement. No follow-up required.
-
-_Want to explore further? Choose a headline that catches your interest, or share the issue with another architect._
 
 *Source links point to the announcements or reporting behind each item; vendor performance claims are not independent production guarantees.*
