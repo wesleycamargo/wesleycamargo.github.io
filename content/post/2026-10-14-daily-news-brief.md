@@ -25,7 +25,6 @@ Microsoft has patched a Windows security flaw already exploited in attacks. In t
 
 <small>BleepingComputer · Lawrence Abrams · October 13, 2026</small>
 
-
 ![Archive photo of a Microsoft sign in Redmond](https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Microsoft_sign_closeup.jpg/960px-Microsoft_sign_closeup.jpg)
 
 <small>Archive photo: Derrick Coetzee / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_sign_closeup.jpg), public domain. This image does not document the attack.</small>
@@ -36,13 +35,11 @@ The security release addresses **1,411 vulnerabilities**, including **70 critica
 
 <small>Docker · Mark Lechner · October 12, 2026</small>
 
-
 **CVE-2026-105445** could cause personal access tokens to retain unintended account permissions when an account was converted into an organization, putting container images and repositories at risk. Docker fixed the problem on **September 30**, notified potentially affected users, and reported **no evidence of exploitation**.
 
 ## 🇳🇱 [ASML says AI demand will exceed chip-tool capacity through 2028](https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/)
 
 <small>Reuters · Nathan Vifflin and Toby Sterling · October 14, 2026</small>
-
 
 ![Archive photo of ASML headquarters in Veldhoven](https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/ASML_headquarters_Veldhoven.jpg/960px-ASML_headquarters_Veldhoven.jpg)
 
@@ -54,7 +51,6 @@ The Dutch chipmaking-equipment supplier says customer orders now extend into **2
 
 <small>Reuters · Foo Yun Chee · October 14, 2026</small>
 
-
 ![Archive photo of the London building associated with Google DeepMind](https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg/960px-Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg)
 
 <small>Archive photo: Gciriani / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Google-Deep_Mind_headquarters_in_London,_6_Pancras_Square.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Taken in 2017; not a photograph of the announcement.</small>
@@ -65,13 +61,11 @@ The program provides access to tools including **AlphaFold 3**, **WeatherNext**,
 
 <small>GitHub Changelog · October 13, 2026</small>
 
-
 **Secret scanning** adds detection for Anthropic, Salesforce, and Cloudsmith credentials. Where secret scanning and push protection are enabled, GitHub now blocks certain Anthropic keys by default. Teams running AI coding agents should check that their repositories use these protections.
 
 ## 🌍 [IMF flags risks to global economy from AI market correction, war and debt](https://www.reuters.com/business/finance/imf-flags-risks-global-economy-ai-market-correction-war-debt-2026-10-13/)
 
 <small>Reuters · David Lawder and Andrea Shalal · October 13, 2026</small>
-
 
 ![Archive photo of the International Monetary Fund headquarters in Washington, DC](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/International_Monetary_Fund_headquarters.jpg/960px-International_Monetary_Fund_headquarters.jpg)
 
