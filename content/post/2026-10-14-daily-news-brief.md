@@ -1,9 +1,9 @@
 ---
-title: "Daily News Brief — 14 de outubro de 2026"
+title: "Daily News Brief — October 14, 2026"
 date: 2026-10-14T09:00:00+02:00
 draft: false
 slug: "daily-news-brief-2026-10-14"
-description: "Microsoft corrige 1.411 vulnerabilidades; ASML sinaliza demanda além da capacidade; Google amplia acesso científico à IA na Europa e outras notícias."
+description: "Microsoft issues a major security update; ASML faces AI-driven demand beyond capacity; Google expands European access to scientific AI models."
 categories:
   - "Daily News Brief"
 tags:
@@ -17,86 +17,74 @@ tags:
   - science
 ---
 
-**14 de outubro de 2026 · Leitura rápida**
+**October 14, 2026 · Quick read**
 
-A Microsoft corrigiu uma falha do Windows já explorada em ataques. Na Holanda, a ASML prevê demanda por equipamentos de chips acima de sua capacidade até 2028. Há também novidades sobre segurança de contêineres, credenciais de IA, pesquisa científica e riscos econômicos globais.
+Microsoft has patched a Windows security flaw already exploited in attacks. In the Netherlands, ASML expects demand for chipmaking equipment to exceed its capacity through 2028. Other developments involve container security, AI credentials, scientific research, and risks to the global economy.
 
 ## 🛡️ [Microsoft October 2026 Patch Tuesday fixes 1,411 flaws, 3 zero-days](https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/)
 
-*Microsoft corrige 1.411 vulnerabilidades, incluindo três falhas zero-day.*
+*Microsoft patches 1,411 vulnerabilities, including three zero-days.*
 
-![Foto de arquivo: placa da Microsoft em Redmond](https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Microsoft_sign_closeup.jpg/960px-Microsoft_sign_closeup.jpg)
+![Archive photo of a Microsoft sign in Redmond](https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Microsoft_sign_closeup.jpg/960px-Microsoft_sign_closeup.jpg)
 
-<small>Foto de arquivo: Derrick Coetzee / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_sign_closeup.jpg), domínio público. A imagem não registra o incidente.</small>
+<small>Archive photo: Derrick Coetzee / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_sign_closeup.jpg), public domain. This image does not document the attack.</small>
 
-<small>BleepingComputer · Lawrence Abrams · 13/10/2026</small>
+<small>BleepingComputer · Lawrence Abrams · October 13, 2026</small>
 
-> “Today is Microsoft's October 2026 Patch Tuesday...”
-
-O pacote de segurança corrige **1.411 falhas**, das quais 70 são críticas. A **CVE-2026-96951** já foi explorada para contornar o *Mark of the Web* no Windows. Priorize a atualização dos sistemas expostos e confira as versões que chegaram ao fim do suporte. A notícia foi publicada em 13 de outubro.
+The security release addresses **1,411 vulnerabilities**, including **70 critical flaws**. Attackers have exploited **CVE-2026-96951** to bypass Windows *Mark of the Web* protections. Prioritize updates for affected systems and identify devices running Windows versions that have reached end of support.
 
 ## 🔐 [Docker Hub security advisory: personal access tokens transferred during account-to-organization conversions](https://www.docker.com/ja-jp/blog/docker-hub-security-advisory-cve-2026-105445/)
 
-*Docker revela falha crítica que poderia transferir permissões de acesso a terceiros.*
+*Docker discloses a critical flaw that could transfer access privileges to another account.*
 
-<small>Docker · Mark Lechner · 12/10/2026</small>
+<small>Docker · Mark Lechner · October 12, 2026</small>
 
-> “On September 30, 2026, security researchers reported...”
-
-A **CVE-2026-105445** poderia permitir que tokens de acesso herdassem a identidade de outras contas durante conversões para organizações, colocando imagens de contêineres em risco. A Docker corrigiu o problema em **30/09**, notificou usuários potencialmente afetados e **não encontrou evidências de exploração**.
+**CVE-2026-105445** could cause personal access tokens to retain unintended account permissions when an account was converted into an organization, putting container images and repositories at risk. Docker fixed the problem on **September 30**, notified potentially affected users, and reported **no evidence of exploitation**.
 
 ## 🇳🇱 [ASML says AI demand will exceed chip-tool capacity through 2028](https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/)
 
-*ASML prevê que a demanda impulsionada pela IA superará sua capacidade de produção.*
+*ASML expects AI-driven orders to outpace its manufacturing capacity.*
 
-![Foto de arquivo: sede da ASML em Veldhoven](https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/ASML_headquarters_Veldhoven.jpg/960px-ASML_headquarters_Veldhoven.jpg)
+![Archive photo of ASML headquarters in Veldhoven](https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/ASML_headquarters_Veldhoven.jpg/960px-ASML_headquarters_Veldhoven.jpg)
 
-<small>Foto de arquivo: A ansems / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ASML_headquarters_Veldhoven.jpg), domínio público. Edifício fotografado em 2008.</small>
+<small>Archive photo: A ansems / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ASML_headquarters_Veldhoven.jpg), public domain. Photographed in 2008.</small>
 
-<small>Reuters · Nathan Vifflin e Toby Sterling · 14/10/2026</small>
+<small>Reuters · Nathan Vifflin and Toby Sterling · October 14, 2026</small>
 
-> “Oct 14 (Reuters) - ASML said booming AI demand...”
-
-A empresa holandesa afirma que pedidos por máquinas de fabricação de chips já avançam até **2030**. Mesmo com ampliações previstas, a capacidade em 2027 e 2028 não deve atender toda a procura. A ASML prevê vendas de **€14,2 bilhões a €15,2 bilhões** no último trimestre de 2026.
+The Dutch chipmaking-equipment supplier says customer orders now extend into **2030**. Despite planned expansions, its capacity in 2027 and 2028 may not meet expected demand. ASML forecasts **€14.2 billion to €15.2 billion** in fourth-quarter 2026 sales.
 
 ## 🔬 [Google DeepMind, Google Cloud to allow European researchers access to frontier models](https://www.reuters.com/technology/google-deepmind-google-cloud-allow-european-researchers-access-frontier-models-2026-10-14/)
 
-*Google libera modelos avançados de IA para até 200 pesquisadores europeus.*
+*Google opens advanced scientific AI tools to up to 200 European researchers.*
 
-![Foto de arquivo: entrada do edifício onde Google e DeepMind trabalhavam em Londres](https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg/960px-Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg)
+![Archive photo of the London building associated with Google DeepMind](https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg/960px-Google-Deep_Mind_headquarters_in_London%2C_6_Pancras_Square.jpg)
 
-<small>Foto de arquivo: Gciriani / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Google-Deep_Mind_headquarters_in_London,_6_Pancras_Square.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Imagem de 2017, sem relação direta com o anúncio.</small>
+<small>Archive photo: Gciriani / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Google-Deep_Mind_headquarters_in_London,_6_Pancras_Square.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Taken in 2017; not a photograph of the announcement.</small>
 
-<small>Reuters · Foo Yun Chee · 14/10/2026</small>
+<small>Reuters · Foo Yun Chee · October 14, 2026</small>
 
-> “BRUSSELS, Oct 14 (Reuters) - Google DeepMind...”
-
-O programa dará acesso a ferramentas como **AlphaFold 3**, **WeatherNext** e **AlphaGenome**, acompanhado de **US$ 3 milhões em créditos de computação**. As aplicações incluem estrutura molecular, genômica e previsão de eventos climáticos.
+The program provides access to tools including **AlphaFold 3**, **WeatherNext**, and **AlphaGenome**, supported by **$3 million in cloud-computing credits**. Potential applications include molecular biology, genomics, and weather forecasting.
 
 ## 🔑 [Secret scanning blocks Anthropic keys by default, adds Salesforce](https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce/)
 
-*GitHub passa a bloquear automaticamente o envio de determinadas chaves Anthropic.*
+*GitHub expands automatic protection against exposed AI service credentials.*
 
-<small>GitHub Changelog · 13/10/2026</small>
+<small>GitHub Changelog · October 13, 2026</small>
 
-> “Secret scanning now detects new secret types...”
-
-O **secret scanning** ganhou detectores para credenciais Anthropic, Salesforce e Cloudsmith. Nos repositórios com secret scanning habilitado, a proteção contra *push* já bloqueia por padrão dois tipos de chaves Anthropic. Vale verificar a proteção nos repositórios usados por agentes de IA.
+**Secret scanning** adds detection for Anthropic, Salesforce, and Cloudsmith credentials. Where secret scanning and push protection are enabled, GitHub now blocks certain Anthropic keys by default. Teams running AI coding agents should check that their repositories use these protections.
 
 ## 🌍 [IMF flags risks to global economy from AI market correction, war and debt](https://www.reuters.com/business/finance/imf-flags-risks-global-economy-ai-market-correction-war-debt-2026-10-13/)
 
-*FMI alerta para riscos associados a uma correção no mercado de IA, guerras e dívidas.*
+*The IMF warns about a potential AI market correction, conflict, and rising debt.*
 
-![Foto de arquivo: sede do Fundo Monetário Internacional em Washington](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/International_Monetary_Fund_headquarters.jpg/960px-International_Monetary_Fund_headquarters.jpg)
+![Archive photo of the International Monetary Fund headquarters in Washington, DC](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/International_Monetary_Fund_headquarters.jpg/960px-International_Monetary_Fund_headquarters.jpg)
 
-<small>Foto de arquivo: APK / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:International_Monetary_Fund_headquarters.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Imagem de março de 2026, ilustrativa.</small>
+<small>Archive photo: APK / [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:International_Monetary_Fund_headquarters.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Illustrative photo from March 2026.</small>
 
-<small>Reuters · David Lawder e Andrea Shalal · 13/10/2026</small>
+<small>Reuters · David Lawder and Andrea Shalal · October 13, 2026</small>
 
-> “BANGKOK, Oct 13 (Reuters) - The International Monetary Fund...”
-
-O FMI projeta crescimento mundial de **3,1% em 2026** e **3,4% em 2027**, mas alerta para os riscos de uma queda abrupta dos investimentos em IA e de uma guerra prolongada no Oriente Médio. Esses são **cenários de risco**, não uma previsão de recessão.
+The IMF projects global economic growth of **3.1% in 2026** and **3.4% in 2027**, while warning about a sharp decline in AI investment and a prolonged conflict in the Middle East. These are **risk scenarios**, not predictions of an inevitable recession.
 
 ---
 
-*As notícias foram verificadas pelas publicações originais; as imagens são fotografias de arquivo identificadas, não registros dos anúncios ou ataques. Nenhuma fotografia foi gerada por IA.*
+*Source links lead to the original reporting. All images are credited archive photographs, not pictures of the reported incidents or announcements. No AI-generated photographs were used.*
