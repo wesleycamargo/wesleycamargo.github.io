@@ -15,7 +15,6 @@ tags:
     - HashiCorp
     - Cloud
     - DevOps
-weight: 1
 ---
 
 Have you ever for any reason didn't had your Azure resource under Terraform and want to starting managing it by the HashCorp Tool? In this step-by-step guide, we'll walk you through the process of importing an existing Azure resource into your Terraform state file, where your backend is configured to use an Azure Storage Account.
